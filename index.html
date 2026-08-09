@@ -9,505 +9,435 @@
 <style>
 
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
 html{
-scroll-behavior:smooth;
+    scroll-behavior:smooth;
 }
 
 body{
-background:#050505;
-color:white;
-font-family:Arial,Helvetica,sans-serif;
-overflow-x:hidden;
+    background:#090909;
+    color:#fff;
+    font-family:Arial,Helvetica,sans-serif;
+    overflow-x:hidden;
 }
 
-/* NAVIGATION */
+/* NAV */
 
 nav{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:80px;
-
-display:flex;
-align-items:center;
-justify-content:space-between;
-
-padding:0 6%;
-
-z-index:100;
-
-background:linear-gradient(
-to bottom,
-rgba(0,0,0,.8),
-transparent
-);
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:80px;
+    padding:0 6%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    z-index:100;
+    background:rgba(5,5,5,.72);
+    backdrop-filter:blur(15px);
 }
 
 .logo{
-color:white;
-text-decoration:none;
-
-font-size:18px;
-font-weight:700;
-
-letter-spacing:-.5px;
-
-transition:.3s;
+    color:white;
+    text-decoration:none;
+    font-size:20px;
+    font-weight:800;
 }
 
-.logo:hover{
-opacity:.7;
+.logo span{
+    color:#ff4d8d;
 }
 
 .nav-links{
-display:flex;
-gap:30px;
+    display:flex;
+    gap:30px;
 }
 
 .nav-links a{
-color:white;
-text-decoration:none;
-
-font-size:13px;
-
-opacity:.75;
-
-transition:.3s;
+    color:white;
+    text-decoration:none;
+    font-size:13px;
+    transition:.3s;
 }
 
 .nav-links a:hover{
-opacity:1;
+    color:#ff4d8d;
 }
 
 /* HERO */
 
 .hero{
-
-height:100vh;
-min-height:650px;
-
-position:relative;
-
-display:flex;
-align-items:flex-end;
-
-padding:0 7% 90px;
-
-overflow:hidden;
-
-background:#111;
+    min-height:100vh;
+    position:relative;
+    display:flex;
+    align-items:flex-end;
+    padding:0 7% 100px;
+    overflow:hidden;
 }
-
-/* YOUR FUTURE BANNER PHOTO */
 
 .hero-image{
+    position:absolute;
+    inset:0;
 
-position:absolute;
-inset:0;
+    /*
+    YOUR FUTURE BANNER PHOTO
+    images/banner.jpg
+    */
 
-background-image:
-linear-gradient(
-to top,
-rgba(0,0,0,.9),
-rgba(0,0,0,.15)
-),
-url("images/banner.jpg");
+    background-image:
+    linear-gradient(
+        120deg,
+        rgba(255,77,141,.35),
+        rgba(0,180,255,.18),
+        rgba(0,0,0,.8)
+    ),
+    url("images/banner.jpg");
 
-background-size:cover;
-background-position:center;
+    background-size:cover;
+    background-position:center;
 
-filter:brightness(.7);
-
-z-index:0;
-}
-
-/* TEMPORARY BANNER */
-
-.hero-image::before{
-
-content:"BANNER PHOTO";
-
-position:absolute;
-
-inset:0;
-
-display:flex;
-
-align-items:center;
-justify-content:center;
-
-font-size:12px;
-
-letter-spacing:5px;
-
-color:#555;
-
-background:
-linear-gradient(
-135deg,
-#151515,
-#292929
-);
-
-z-index:-1;
+    background-color:#191919;
 }
 
 .hero-content{
-
-position:relative;
-
-z-index:2;
-
-max-width:900px;
+    position:relative;
+    z-index:2;
+    max-width:950px;
 }
 
-.small{
-
-font-size:10px;
-
-letter-spacing:4px;
-
-color:#aaa;
-
-margin-bottom:20px;
+.tag{
+    display:inline-block;
+    color:#fff;
+    background:linear-gradient(90deg,#ff4d8d,#7c5cff);
+    padding:8px 14px;
+    border-radius:50px;
+    font-size:10px;
+    letter-spacing:2px;
+    margin-bottom:25px;
 }
 
 .hero h1{
-
-font-size:
-clamp(65px,11vw,150px);
-
-line-height:.82;
-
-letter-spacing:-8px;
+    font-size:clamp(65px,11vw,155px);
+    line-height:.82;
+    letter-spacing:-8px;
 }
 
 .hero h1 span{
+    background:linear-gradient(
+        90deg,
+        #ff4d8d,
+        #7c5cff,
+        #00c8ff
+    );
 
-color:#888;
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
 }
 
 .hero p{
-
-margin-top:30px;
-
-max-width:520px;
-
-font-size:17px;
-
-line-height:1.6;
-
-color:#bbb;
+    max-width:550px;
+    margin-top:30px;
+    font-size:18px;
+    line-height:1.6;
+    color:#ddd;
 }
 
 .button{
-
-display:inline-block;
-
-margin-top:30px;
-
-padding:15px 25px;
-
-background:white;
-
-color:black;
-
-text-decoration:none;
-
-font-size:12px;
-
-font-weight:bold;
-
-transition:.3s;
+    display:inline-block;
+    margin-top:30px;
+    padding:16px 27px;
+    background:linear-gradient(90deg,#ff4d8d,#7c5cff);
+    color:white;
+    text-decoration:none;
+    font-size:12px;
+    font-weight:bold;
+    border-radius:4px;
+    transition:.3s;
 }
 
 .button:hover{
-
-transform:translateY(-3px);
-
-background:#ccc;
+    transform:translateY(-4px);
+    box-shadow:0 10px 35px rgba(255,77,141,.3);
 }
 
-/* SECTIONS */
+/* GENERAL */
 
 section{
+    padding:130px 7%;
+}
 
-padding:130px 7%;
+.small{
+    font-size:10px;
+    letter-spacing:4px;
+    color:#aaa;
+    margin-bottom:18px;
+}
+
+/* SERVICES */
+
+.services{
+    background:
+    radial-gradient(
+        circle at 20% 30%,
+        rgba(255,77,141,.12),
+        transparent 30%
+    ),
+    #090909;
+}
+
+.section-title{
+    font-size:clamp(50px,7vw,90px);
+    letter-spacing:-5px;
+    margin-bottom:60px;
+}
+
+.service-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.service{
+    padding:40px;
+    min-height:260px;
+    border:1px solid #222;
+    background:linear-gradient(145deg,#151515,#0d0d0d);
+    transition:.4s;
+}
+
+.service:hover{
+    transform:translateY(-8px);
+    border-color:#ff4d8d;
+}
+
+.service-number{
+    color:#ff4d8d;
+    font-size:12px;
+    margin-bottom:50px;
+}
+
+.service h3{
+    font-size:30px;
+    margin-bottom:15px;
+}
+
+.service p{
+    color:#999;
+    line-height:1.6;
 }
 
 /* PORTFOLIO */
 
-.portfolio-title{
-
-font-size:
-clamp(50px,7vw,90px);
-
-letter-spacing:-5px;
-
-margin-bottom:60px;
+.portfolio{
+    background:
+    radial-gradient(
+        circle at 80% 40%,
+        rgba(0,200,255,.1),
+        transparent 30%
+    );
 }
 
 .gallery{
-
-display:grid;
-
-grid-template-columns:
-repeat(2,1fr);
-
-gap:25px;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:25px;
 }
 
 .photo{
-
-position:relative;
-
-aspect-ratio:16/10;
-
-overflow:hidden;
-
-background:
-linear-gradient(
-135deg,
-#171717,
-#303030
-);
-
-display:flex;
-
-align-items:center;
-justify-content:center;
-
-color:#666;
-
-font-size:10px;
-
-letter-spacing:4px;
-
-transition:.5s;
-}
-
-.photo:hover{
-
-transform:scale(.985);
+    position:relative;
+    aspect-ratio:16/10;
+    overflow:hidden;
+    background:
+    linear-gradient(
+        135deg,
+        #202020,
+        #333
+    );
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#777;
+    font-size:10px;
+    letter-spacing:4px;
 }
 
 .photo img{
-
-width:100%;
-height:100%;
-
-object-fit:cover;
-
-display:block;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
 }
 
 /* ABOUT */
 
 .about{
+    border-top:1px solid #222;
 
-border-top:1px solid #1d1d1d;
+    display:grid;
+    grid-template-columns:1fr 1fr;
 
-display:grid;
+    gap:80px;
 
-grid-template-columns:
-1fr 1fr;
-
-gap:80px;
+    background:
+    radial-gradient(
+        circle at 70% 50%,
+        rgba(124,92,255,.12),
+        transparent 35%
+    );
 }
 
 .about h2{
-
-font-size:
-clamp(45px,6vw,80px);
-
-letter-spacing:-4px;
+    font-size:clamp(45px,6vw,80px);
+    letter-spacing:-4px;
 }
 
 .about-text{
-
-font-size:19px;
-
-line-height:1.8;
-
-color:#999;
-
-max-width:600px;
+    font-size:19px;
+    line-height:1.8;
+    color:#aaa;
+    max-width:650px;
 }
 
-/* CONTACT */
+/* BOOKING */
 
-.contact{
+.booking{
+    text-align:center;
+    min-height:75vh;
 
-border-top:1px solid #1d1d1d;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
 
-min-height:70vh;
-
-display:flex;
-
-flex-direction:column;
-
-justify-content:center;
+    background:
+    radial-gradient(
+        circle,
+        rgba(255,77,141,.2),
+        rgba(124,92,255,.1),
+        transparent 60%
+    );
 }
 
-.contact h2{
-
-font-size:
-clamp(50px,8vw,110px);
-
-letter-spacing:-6px;
-
-max-width:1000px;
+.booking h2{
+    font-size:clamp(55px,9vw,120px);
+    letter-spacing:-7px;
+    max-width:1000px;
 }
 
-.contact p{
-
-color:#999;
-
-margin-top:25px;
-
-font-size:18px;
+.booking p{
+    color:#aaa;
+    font-size:18px;
+    margin-top:25px;
+    max-width:600px;
 }
 
-.social{
-
-margin-top:30px;
+.instagram{
+    margin-top:25px;
+    color:#fff;
+    text-decoration:none;
 }
 
-.social a{
-
-color:white;
-
-text-decoration:none;
-
-font-size:14px;
-
-opacity:.7;
-
-transition:.3s;
-}
-
-.social a:hover{
-
-opacity:1;
+.instagram:hover{
+    color:#ff4d8d;
 }
 
 /* FOOTER */
 
 footer{
-
-border-top:1px solid #1d1d1d;
-
-padding:30px 7%;
-
-color:#555;
-
-font-size:11px;
-
-letter-spacing:1px;
+    border-top:1px solid #222;
+    padding:30px 7%;
+    color:#555;
+    font-size:11px;
+    letter-spacing:1px;
 }
 
 /* MOBILE */
 
-@media(max-width:700px){
+@media(max-width:800px){
 
-nav{
+    nav{
+        height:70px;
+        padding:0 5%;
+    }
 
-height:70px;
+    .logo{
+        font-size:16px;
+    }
 
-padding:0 5%;
-}
+    .nav-links{
+        gap:14px;
+    }
 
-.logo{
+    .nav-links a{
+        font-size:11px;
+    }
 
-font-size:15px;
-}
+    .hero{
+        padding:0 6% 70px;
+    }
 
-.nav-links{
+    .hero h1{
+        letter-spacing:-5px;
+    }
 
-gap:15px;
-}
+    section{
+        padding:90px 6%;
+    }
 
-.nav-links a{
+    .service-grid{
+        grid-template-columns:1fr;
+    }
 
-font-size:11px;
-}
+    .gallery{
+        grid-template-columns:1fr;
+    }
 
-.hero{
+    .about{
+        grid-template-columns:1fr;
+        gap:35px;
+    }
 
-padding:
-0 6% 70px;
-}
+    .about-text{
+        font-size:17px;
+    }
 
-.hero h1{
+    .section-title{
+        letter-spacing:-3px;
+    }
 
-letter-spacing:-4px;
-}
-
-section{
-
-padding:90px 6%;
-}
-
-.gallery{
-
-grid-template-columns:1fr;
-
-gap:18px;
-}
-
-.about{
-
-grid-template-columns:1fr;
-
-gap:35px;
-}
-
-.about-text{
-
-font-size:17px;
-}
-
-.portfolio-title{
-
-letter-spacing:-3px;
-}
-
+    .booking h2{
+        letter-spacing:-4px;
+    }
 }
 
 </style>
 </head>
 
-
 <body>
-
 
 <!-- NAVIGATION -->
 
 <nav>
 
 <a href="#home" class="logo">
-mm_spotting
+mm_spotting<span>.</span>
 </a>
 
 <div class="nav-links">
 
-<a href="#portfolio">
-Portfolio
-</a>
+<a href="#portfolio">Portfolio</a>
 
-<a href="#about">
-About
-</a>
+<a href="#services">Services</a>
 
-<a href="#contact">
-Contact
-</a>
+<a href="#about">About</a>
+
+<a href="#booking">Book</a>
 
 </div>
 
@@ -522,35 +452,84 @@ Contact
 
 <div class="hero-content">
 
-<div class="small">
-AUTOMOTIVE PHOTOGRAPHY
+<div class="tag">
+AUTOMOTIVE · WEDDINGS · EVENTS
 </div>
 
 <h1>
-
 mm_spotting
-
 <br>
-
 <span>Photography</span>
-
 </h1>
 
 <p>
-
-Automotive photography capturing
-cars, events and everything in between.
-
+Photography that captures the moments,
+machines and memories worth keeping.
 </p>
 
-<a
-class="button"
-href="#portfolio"
->
-
-VIEW PORTFOLIO
-
+<a class="button" href="#booking">
+BOOK A SHOOT
 </a>
+
+</div>
+
+</section>
+
+
+<!-- SERVICES -->
+
+<section class="services" id="services">
+
+<div class="small">
+WHAT I DO
+</div>
+
+<h2 class="section-title">
+Photography
+</h2>
+
+<div class="service-grid">
+
+<div class="service">
+
+<div class="service-number">01</div>
+
+<h3>Cars</h3>
+
+<p>
+Automotive photography for car owners,
+enthusiasts, dealerships and special builds.
+</p>
+
+</div>
+
+
+<div class="service">
+
+<div class="service-number">02</div>
+
+<h3>Weddings</h3>
+
+<p>
+Capturing the important moments,
+details and memories from your wedding day.
+</p>
+
+</div>
+
+
+<div class="service">
+
+<div class="service-number">03</div>
+
+<h3>Events</h3>
+
+<p>
+Photography for automotive events,
+shows, celebrations and other special occasions.
+</p>
+
+</div>
 
 </div>
 
@@ -559,13 +538,13 @@ VIEW PORTFOLIO
 
 <!-- PORTFOLIO -->
 
-<section id="portfolio">
+<section class="portfolio" id="portfolio">
 
 <div class="small">
 SELECTED WORK
 </div>
 
-<h2 class="portfolio-title">
+<h2 class="section-title">
 Portfolio
 </h2>
 
@@ -574,80 +553,32 @@ Portfolio
 
 
 <div class="photo">
-
-<img
-src="images/car1.jpg"
-alt="Automotive photography"
-onerror="this.style.display='none'"
->
-
 <span>PHOTO 01</span>
-
 </div>
 
 
 <div class="photo">
-
-<img
-src="images/car2.jpg"
-alt="Automotive photography"
-onerror="this.style.display='none'"
->
-
 <span>PHOTO 02</span>
-
 </div>
 
 
 <div class="photo">
-
-<img
-src="images/car3.jpg"
-alt="Automotive photography"
-onerror="this.style.display='none'"
->
-
 <span>PHOTO 03</span>
-
 </div>
 
 
 <div class="photo">
-
-<img
-src="images/car4.jpg"
-alt="Automotive photography"
-onerror="this.style.display='none'"
->
-
 <span>PHOTO 04</span>
-
 </div>
 
 
 <div class="photo">
-
-<img
-src="images/car5.jpg"
-alt="Automotive photography"
-onerror="this.style.display='none'"
->
-
 <span>PHOTO 05</span>
-
 </div>
 
 
 <div class="photo">
-
-<img
-src="images/car6.jpg"
-alt="Automotive photography"
-onerror="this.style.display='none'"
->
-
 <span>PHOTO 06</span>
-
 </div>
 
 
@@ -658,15 +589,12 @@ onerror="this.style.display='none'"
 
 <!-- ABOUT -->
 
-<section
-id="about"
-class="about"
->
+<section class="about" id="about">
 
 <div>
 
 <div class="small">
-ABOUT
+ABOUT ME
 </div>
 
 <h2>
@@ -678,66 +606,55 @@ mm_spotting
 
 <div class="about-text">
 
-I'm an automotive photographer
-focused on capturing cars, events
-and the details that make every
-build unique.
+I'm a photographer with a passion for
+cars and visual storytelling.
 
-From everyday cars to rare
-performance machines, I aim to
-capture them in a way that makes
-every image stand out.
+My main focus is automotive photography,
+but I also want to capture weddings,
+events and the moments people want to
+remember.
 
-More photography coming soon.
+Whether it's a rare car at an event,
+a special day with family or a moment
+that only happens once, my goal is to
+create photographs that are worth keeping.
 
 </div>
 
 </section>
 
 
-<!-- CONTACT -->
+<!-- BOOKING -->
 
-<section
-id="contact"
-class="contact"
->
+<section class="booking" id="booking">
 
 <div class="small">
-GET IN TOUCH
+LET'S WORK TOGETHER
 </div>
 
 <h2>
-Got a car worth photographing?
+Book a photography shoot
 </h2>
 
 <p>
-For shoots, collaborations and
-photography enquiries.
+Got a car, wedding or event coming up?
+Get in touch and let's talk about your shoot.
 </p>
-
 
 <a
 class="button"
 href="mailto:YOUR-EMAIL-HERE"
 >
-
-CONTACT ME
-
+BOOK A SHOOT
 </a>
 
-
-<div class="social">
-
 <a
+class="instagram"
 href="https://instagram.com/mm_spotting__"
 target="_blank"
 >
-
 Instagram ↗
-
 </a>
-
-</div>
 
 </section>
 
@@ -747,7 +664,6 @@ Instagram ↗
 © 2026 mm_spotting Photography
 
 </footer>
-
 
 </body>
 </html>
