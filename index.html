@@ -7,6 +7,7 @@
 <title>mm_spotting Photography</title>
 
 <style>
+
 *{
 margin:0;
 padding:0;
@@ -19,293 +20,505 @@ scroll-behavior:smooth;
 
 body{
 background:#050505;
-color:#fff;
+color:white;
 font-family:Arial,Helvetica,sans-serif;
 overflow-x:hidden;
 }
+
+/* NAVIGATION */
 
 nav{
 position:fixed;
 top:0;
 left:0;
 width:100%;
-padding:25px 6%;
+height:80px;
+
 display:flex;
-justify-content:space-between;
 align-items:center;
+justify-content:space-between;
+
+padding:0 6%;
+
 z-index:100;
-background:linear-gradient(to bottom,rgba(0,0,0,.8),transparent);
-}
 
-.logo{
-font-size:18px;
-font-weight:700;
-letter-spacing:-.5px;
-}
-
-.logo span{
-color:#777;
-font-weight:400;
-}
-
-nav a{
-color:#fff;
-text-decoration:none;
-font-size:13px;
-margin-left:30px;
-opacity:.8;
-transition:.3s;
-}
-
-nav a:hover{
-opacity:1;
-}
-
-.hero{
-height:100vh;
-min-height:650px;
-display:flex;
-align-items:flex-end;
-padding:0 7% 90px;
-position:relative;
-background:
-radial-gradient(circle at 75% 40%,#333 0%,#111 25%,#050505 65%);
-}
-
-.hero:after{
-content:"";
-position:absolute;
-inset:0;
 background:linear-gradient(
-to top,
-#050505 0%,
-transparent 55%
+to bottom,
+rgba(0,0,0,.8),
+transparent
 );
 }
 
-.hero-content{
+.logo{
+color:white;
+text-decoration:none;
+
+font-size:18px;
+font-weight:700;
+
+letter-spacing:-.5px;
+
+transition:.3s;
+}
+
+.logo:hover{
+opacity:.7;
+}
+
+.nav-links{
+display:flex;
+gap:30px;
+}
+
+.nav-links a{
+color:white;
+text-decoration:none;
+
+font-size:13px;
+
+opacity:.75;
+
+transition:.3s;
+}
+
+.nav-links a:hover{
+opacity:1;
+}
+
+/* HERO */
+
+.hero{
+
+height:100vh;
+min-height:650px;
+
 position:relative;
+
+display:flex;
+align-items:flex-end;
+
+padding:0 7% 90px;
+
+overflow:hidden;
+
+background:#111;
+}
+
+/* YOUR FUTURE BANNER PHOTO */
+
+.hero-image{
+
+position:absolute;
+inset:0;
+
+background-image:
+linear-gradient(
+to top,
+rgba(0,0,0,.9),
+rgba(0,0,0,.15)
+),
+url("images/banner.jpg");
+
+background-size:cover;
+background-position:center;
+
+filter:brightness(.7);
+
+z-index:0;
+}
+
+/* TEMPORARY BANNER */
+
+.hero-image::before{
+
+content:"BANNER PHOTO";
+
+position:absolute;
+
+inset:0;
+
+display:flex;
+
+align-items:center;
+justify-content:center;
+
+font-size:12px;
+
+letter-spacing:5px;
+
+color:#555;
+
+background:
+linear-gradient(
+135deg,
+#151515,
+#292929
+);
+
+z-index:-1;
+}
+
+.hero-content{
+
+position:relative;
+
 z-index:2;
+
 max-width:900px;
 }
 
 .small{
-font-size:11px;
+
+font-size:10px;
+
 letter-spacing:4px;
-color:#888;
+
+color:#aaa;
+
 margin-bottom:20px;
 }
 
 .hero h1{
-font-size:clamp(65px,11vw,155px);
+
+font-size:
+clamp(65px,11vw,150px);
+
 line-height:.82;
+
 letter-spacing:-8px;
 }
 
 .hero h1 span{
-color:#777;
+
+color:#888;
 }
 
 .hero p{
-max-width:500px;
+
 margin-top:30px;
+
+max-width:520px;
+
 font-size:17px;
+
 line-height:1.6;
-color:#aaa;
+
+color:#bbb;
 }
 
 .button{
+
 display:inline-block;
+
 margin-top:30px;
-padding:15px 24px;
-background:#fff;
-color:#000;
+
+padding:15px 25px;
+
+background:white;
+
+color:black;
+
 text-decoration:none;
-font-size:13px;
+
+font-size:12px;
+
 font-weight:bold;
+
 transition:.3s;
 }
 
 .button:hover{
-background:#aaa;
+
 transform:translateY(-3px);
+
+background:#ccc;
 }
 
+/* SECTIONS */
+
 section{
+
 padding:130px 7%;
 }
 
-.section-title{
-font-size:clamp(50px,7vw,90px);
+/* PORTFOLIO */
+
+.portfolio-title{
+
+font-size:
+clamp(50px,7vw,90px);
+
 letter-spacing:-5px;
+
 margin-bottom:60px;
 }
 
 .gallery{
+
 display:grid;
-grid-template-columns:repeat(2,1fr);
+
+grid-template-columns:
+repeat(2,1fr);
+
 gap:25px;
 }
 
 .photo{
+
 position:relative;
+
 aspect-ratio:16/10;
+
 overflow:hidden;
-background:linear-gradient(135deg,#171717,#333);
+
+background:
+linear-gradient(
+135deg,
+#171717,
+#303030
+);
+
 display:flex;
+
 align-items:center;
 justify-content:center;
+
 color:#666;
-font-size:11px;
-letter-spacing:3px;
-transition:.4s;
+
+font-size:10px;
+
+letter-spacing:4px;
+
+transition:.5s;
 }
 
 .photo:hover{
+
 transform:scale(.985);
 }
 
-.photo:after{
-content:"";
-position:absolute;
-inset:0;
-background:linear-gradient(
-to top,
-rgba(0,0,0,.5),
-transparent 60%
-);
-opacity:0;
-transition:.4s;
+.photo img{
+
+width:100%;
+height:100%;
+
+object-fit:cover;
+
+display:block;
 }
 
-.photo:hover:after{
-opacity:1;
-}
+/* ABOUT */
 
 .about{
+
 border-top:1px solid #1d1d1d;
+
 display:grid;
-grid-template-columns:1fr 1fr;
+
+grid-template-columns:
+1fr 1fr;
+
 gap:80px;
 }
 
 .about h2{
-font-size:clamp(45px,6vw,80px);
+
+font-size:
+clamp(45px,6vw,80px);
+
 letter-spacing:-4px;
 }
 
 .about-text{
+
 font-size:19px;
+
 line-height:1.8;
+
 color:#999;
+
 max-width:600px;
 }
 
+/* CONTACT */
+
 .contact{
+
 border-top:1px solid #1d1d1d;
-min-height:65vh;
+
+min-height:70vh;
+
 display:flex;
+
 flex-direction:column;
+
 justify-content:center;
 }
 
 .contact h2{
-font-size:clamp(50px,8vw,110px);
+
+font-size:
+clamp(50px,8vw,110px);
+
 letter-spacing:-6px;
+
 max-width:1000px;
 }
 
 .contact p{
+
 color:#999;
+
 margin-top:25px;
+
 font-size:18px;
 }
 
 .social{
-margin-top:25px;
+
+margin-top:30px;
 }
 
 .social a{
-color:#fff;
+
+color:white;
+
 text-decoration:none;
-margin-right:25px;
+
 font-size:14px;
+
+opacity:.7;
+
+transition:.3s;
 }
 
+.social a:hover{
+
+opacity:1;
+}
+
+/* FOOTER */
+
 footer{
+
 border-top:1px solid #1d1d1d;
+
 padding:30px 7%;
+
 color:#555;
+
 font-size:11px;
+
 letter-spacing:1px;
 }
+
+/* MOBILE */
 
 @media(max-width:700px){
 
 nav{
-padding:20px;
+
+height:70px;
+
+padding:0 5%;
 }
 
 .logo{
+
 font-size:15px;
 }
 
-nav a{
-margin-left:12px;
+.nav-links{
+
+gap:15px;
+}
+
+.nav-links a{
+
 font-size:11px;
 }
 
 .hero{
-padding:0 6% 70px;
+
+padding:
+0 6% 70px;
 }
 
 .hero h1{
+
 letter-spacing:-4px;
 }
 
 section{
+
 padding:90px 6%;
 }
 
 .gallery{
+
 grid-template-columns:1fr;
+
 gap:18px;
 }
 
 .about{
+
 grid-template-columns:1fr;
+
 gap:35px;
 }
 
 .about-text{
+
 font-size:17px;
 }
 
-.section-title{
+.portfolio-title{
+
 letter-spacing:-3px;
 }
+
 }
+
 </style>
 </head>
 
+
 <body>
+
+
+<!-- NAVIGATION -->
 
 <nav>
 
-<div class="logo">
-mm_spotting <span>Photography</span>
-</div>
+<a href="#home" class="logo">
+mm_spotting
+</a>
 
-<div>
-<a href="#portfolio">Portfolio</a>
-<a href="#about">About</a>
-<a href="#contact">Contact</a>
+<div class="nav-links">
+
+<a href="#portfolio">
+Portfolio
+</a>
+
+<a href="#about">
+About
+</a>
+
+<a href="#contact">
+Contact
+</a>
+
 </div>
 
 </nav>
 
 
-<section class="hero">
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+<div class="hero-image"></div>
 
 <div class="hero-content">
 
@@ -314,17 +527,29 @@ AUTOMOTIVE PHOTOGRAPHY
 </div>
 
 <h1>
-mm_spotting<br>
+
+mm_spotting
+
+<br>
+
 <span>Photography</span>
+
 </h1>
 
 <p>
-Cars captured from every angle.
-Automotive photography, events and car culture.
+
+Automotive photography capturing
+cars, events and everything in between.
+
 </p>
 
-<a class="button" href="#portfolio">
+<a
+class="button"
+href="#portfolio"
+>
+
 VIEW PORTFOLIO
+
 </a>
 
 </div>
@@ -332,41 +557,116 @@ VIEW PORTFOLIO
 </section>
 
 
+<!-- PORTFOLIO -->
+
 <section id="portfolio">
 
 <div class="small">
 SELECTED WORK
 </div>
 
-<h2 class="section-title">
+<h2 class="portfolio-title">
 Portfolio
 </h2>
 
+
 <div class="gallery">
 
-<div class="photo">YOUR PHOTO</div>
 
-<div class="photo">YOUR PHOTO</div>
+<div class="photo">
 
-<div class="photo">YOUR PHOTO</div>
+<img
+src="images/car1.jpg"
+alt="Automotive photography"
+onerror="this.style.display='none'"
+>
 
-<div class="photo">YOUR PHOTO</div>
+<span>PHOTO 01</span>
 
-<div class="photo">YOUR PHOTO</div>
+</div>
 
-<div class="photo">YOUR PHOTO</div>
+
+<div class="photo">
+
+<img
+src="images/car2.jpg"
+alt="Automotive photography"
+onerror="this.style.display='none'"
+>
+
+<span>PHOTO 02</span>
+
+</div>
+
+
+<div class="photo">
+
+<img
+src="images/car3.jpg"
+alt="Automotive photography"
+onerror="this.style.display='none'"
+>
+
+<span>PHOTO 03</span>
+
+</div>
+
+
+<div class="photo">
+
+<img
+src="images/car4.jpg"
+alt="Automotive photography"
+onerror="this.style.display='none'"
+>
+
+<span>PHOTO 04</span>
+
+</div>
+
+
+<div class="photo">
+
+<img
+src="images/car5.jpg"
+alt="Automotive photography"
+onerror="this.style.display='none'"
+>
+
+<span>PHOTO 05</span>
+
+</div>
+
+
+<div class="photo">
+
+<img
+src="images/car6.jpg"
+alt="Automotive photography"
+onerror="this.style.display='none'"
+>
+
+<span>PHOTO 06</span>
+
+</div>
+
 
 </div>
 
 </section>
 
 
-<section id="about" class="about">
+<!-- ABOUT -->
+
+<section
+id="about"
+class="about"
+>
 
 <div>
 
 <div class="small">
-ABOUT ME
+ABOUT
 </div>
 
 <h2>
@@ -375,11 +675,18 @@ mm_spotting
 
 </div>
 
+
 <div class="about-text">
 
-I’m an automotive photographer focused on capturing cars, events and the details that make every build unique.
+I'm an automotive photographer
+focused on capturing cars, events
+and the details that make every
+build unique.
 
-From everyday cars to rare performance machines, I aim to capture them in a way that makes every image stand out.
+From everyday cars to rare
+performance machines, I aim to
+capture them in a way that makes
+every image stand out.
 
 More photography coming soon.
 
@@ -388,7 +695,12 @@ More photography coming soon.
 </section>
 
 
-<section id="contact" class="contact">
+<!-- CONTACT -->
+
+<section
+id="contact"
+class="contact"
+>
 
 <div class="small">
 GET IN TOUCH
@@ -399,17 +711,30 @@ Got a car worth photographing?
 </h2>
 
 <p>
-For shoots, collaborations and photography enquiries.
+For shoots, collaborations and
+photography enquiries.
 </p>
 
-<a class="button" href="mailto:YOUR-EMAIL-HERE">
+
+<a
+class="button"
+href="mailto:YOUR-EMAIL-HERE"
+>
+
 CONTACT ME
+
 </a>
+
 
 <div class="social">
 
-<a href="https://instagram.com/mm_spotting__" target="_blank">
+<a
+href="https://instagram.com/mm_spotting__"
+target="_blank"
+>
+
 Instagram ↗
+
 </a>
 
 </div>
@@ -422,6 +747,7 @@ Instagram ↗
 © 2026 mm_spotting Photography
 
 </footer>
+
 
 </body>
 </html>
