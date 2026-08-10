@@ -7,7 +7,6 @@
 <title>mm_spotting Photography</title>
 
 <style>
-
 *{
 margin:0;
 padding:0;
@@ -118,16 +117,11 @@ text-transform:uppercase;
 .hero{
 height:100vh;
 min-height:700px;
-position:relative;
 display:flex;
 align-items:flex-end;
 padding:0 7vw 9vh;
 background:
-linear-gradient(
-to top,
-rgba(0,0,0,.75),
-rgba(0,0,0,.05) 70%
-),
+linear-gradient(to top,rgba(0,0,0,.75),rgba(0,0,0,.05) 70%),
 url("banner.jpg") center/cover no-repeat;
 color:white;
 }
@@ -168,6 +162,7 @@ font-size:10px;
 letter-spacing:2px;
 text-transform:uppercase;
 transition:.35s;
+cursor:pointer;
 }
 
 .hero .button{
@@ -242,6 +237,7 @@ margin-bottom:60px;
 }
 
 .portfolio h2,
+.gallery-section h2,
 .approach h2,
 .info h2,
 .prices h2,
@@ -268,6 +264,7 @@ height:500px;
 background:#d9d7d1;
 overflow:hidden;
 position:relative;
+cursor:pointer;
 }
 
 .gallery-item:first-child{
@@ -295,6 +292,50 @@ letter-spacing:3px;
 text-transform:uppercase;
 background:rgba(244,243,239,.85);
 padding:8px 12px;
+}
+
+.gallery-section{
+background:#f4f3ef;
+}
+
+.gallery-category{
+margin-top:100px;
+scroll-margin-top:120px;
+}
+
+.gallery-category:first-of-type{
+margin-top:60px;
+}
+
+.gallery-category h3{
+font-size:clamp(34px,5vw,60px);
+font-weight:400;
+margin-bottom:35px;
+}
+
+.gallery-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:18px;
+}
+
+.gallery-photo{
+height:420px;
+overflow:hidden;
+background:#ddd;
+cursor:pointer;
+}
+
+.gallery-photo img{
+width:100%;
+height:100%;
+object-fit:cover;
+display:block;
+transition:.6s;
+}
+
+.gallery-photo:hover img{
+transform:scale(1.04);
 }
 
 .approach{
@@ -479,6 +520,37 @@ gap:15px;
 flex-wrap:wrap;
 }
 
+.lightbox{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.92);
+z-index:5000;
+display:none;
+align-items:center;
+justify-content:center;
+padding:30px;
+}
+
+.lightbox.open{
+display:flex;
+}
+
+.lightbox img{
+max-width:95vw;
+max-height:90vh;
+object-fit:contain;
+}
+
+.lightbox-close{
+position:absolute;
+top:25px;
+right:30px;
+color:white;
+font-size:32px;
+cursor:pointer;
+font-weight:300;
+}
+
 footer{
 padding:35px 7vw;
 border-top:1px solid #ccc;
@@ -502,15 +574,8 @@ transform:translateY(0);
 }
 
 @keyframes marquee{
-
-from{
-transform:translateX(0);
-}
-
-to{
-transform:translateX(-50%);
-}
-
+from{transform:translateX(0);}
+to{transform:translateX(-50%);}
 }
 
 @media(max-width:850px){
@@ -569,6 +634,14 @@ height:500px;
 grid-row:auto;
 }
 
+.gallery-grid{
+grid-template-columns:1fr;
+}
+
+.gallery-photo{
+height:500px;
+}
+
 .approach-grid,
 .info-grid{
 grid-template-columns:1fr;
@@ -618,22 +691,18 @@ gap:15px;
 </div>
 
 <a href="#home" class="logo">
-<img
-src="IMG_1525.jpg"
-alt="mm_spotting Photography logo"
->
+<img src="IMG_1525.jpg" alt="mm_spotting Photography logo">
 </a>
 
 <div class="nav-right nav">
 <a href="#portfolio">Portfolio</a>
+<a href="#gallery">Gallery</a>
 <a href="#prices">Prices</a>
 <a href="#blog">Blog</a>
 <a href="#contact">Contact</a>
 </div>
 
-<div class="menu-button" onclick="toggleMenu()">
-Menu
-</div>
+<div class="menu-button" onclick="toggleMenu()">Menu</div>
 
 </header>
 
@@ -643,6 +712,7 @@ Menu
 <a href="#approach">My Approach</a>
 <a href="#info">Info</a>
 <a href="#portfolio">Portfolio</a>
+<a href="#gallery">Gallery</a>
 <a href="#prices">Prices</a>
 <a href="#blog">Blog</a>
 <a href="#contact">Contact</a>
@@ -721,64 +791,155 @@ Selected Work
 </div>
 
 <p>
-Automotive photography is where
-mm_spotting starts.
+Click any image to open its full gallery category.
 </p>
 
 </div>
 
 <div class="gallery">
 
-<div class="gallery-item reveal">
+<a class="gallery-item reveal" href="#automotive">
 <img src="banner.jpg" alt="Automotive photography">
-<span>Featured</span>
-</div>
+<span>Automotive</span>
+</a>
 
-<div class="gallery-item reveal">
+<a class="gallery-item reveal" href="#automotive">
 <img src="IMG_2099.jpg" alt="Porsche automotive photography">
 <span>Automotive</span>
-</div>
+</a>
 
-<div class="gallery-item reveal">
+<a class="gallery-item reveal" href="#automotive">
 <img src="IMG_2115.jpg" alt="Automotive photography">
 <span>Automotive</span>
-</div>
+</a>
 
-<div class="gallery-item reveal">
+<a class="gallery-item reveal" href="#automotive">
 <img src="IMG_2909.jpg" alt="Automotive photography">
 <span>Automotive</span>
-</div>
+</a>
 
-<div class="gallery-item reveal">
+<a class="gallery-item reveal" href="#wedding">
 <img src="PICT0087.jpg" alt="Wedding photography">
 <span>Wedding</span>
-</div>
+</a>
 
-<div class="gallery-item reveal">
+<a class="gallery-item reveal" href="#interior">
 <img src="IMG_4138.jpg" alt="Car interior photography">
 <span>Interior Shots</span>
-</div>
+</a>
 
-<div class="gallery-item reveal">
+<a class="gallery-item reveal" href="#pets">
 <img src="IMG_4197.jpg" alt="Pet photography">
 <span>Pets</span>
-</div>
+</a>
 
-<div class="gallery-item reveal">
+<a class="gallery-item reveal" href="#details">
 <img src="IMG_4269.jpg" alt="Automotive detail photography">
 <span>Details</span>
-</div>
+</a>
 
-<div class="gallery-item reveal">
+<a class="gallery-item reveal" href="#automotive">
 <img src="IMG_2788.jpg" alt="Automotive photography">
 <span>Automotive</span>
-</div>
+</a>
 
-<div class="gallery-item reveal">
+<a class="gallery-item reveal" href="#automotive">
 <img src="IMG_2854.jpg" alt="Automotive photography">
 <span>Automotive</span>
+</a>
+
 </div>
 
+</section>
+
+<section class="gallery-section" id="gallery">
+
+<div class="section-number reveal">
+03 / Gallery
+</div>
+
+<h2 class="reveal">
+Full Gallery
+</h2>
+
+<div class="gallery-category reveal" id="automotive">
+<h3>Automotive</h3>
+
+<div class="gallery-grid">
+
+<div class="gallery-photo" onclick="openLightbox('banner.jpg')">
+<img src="banner.jpg" alt="Automotive photography">
+</div>
+
+<div class="gallery-photo" onclick="openLightbox('IMG_2099.jpg')">
+<img src="IMG_2099.jpg" alt="Porsche automotive photography">
+</div>
+
+<div class="gallery-photo" onclick="openLightbox('IMG_2115.jpg')">
+<img src="IMG_2115.jpg" alt="Automotive photography">
+</div>
+
+<div class="gallery-photo" onclick="openLightbox('IMG_2909.jpg')">
+<img src="IMG_2909.jpg" alt="Automotive photography">
+</div>
+
+<div class="gallery-photo" onclick="openLightbox('IMG_2788.jpg')">
+<img src="IMG_2788.jpg" alt="Automotive photography">
+</div>
+
+<div class="gallery-photo" onclick="openLightbox('IMG_2854.jpg')">
+<img src="IMG_2854.jpg" alt="Automotive photography">
+</div>
+
+</div>
+</div>
+
+<div class="gallery-category reveal" id="wedding">
+<h3>Wedding</h3>
+
+<div class="gallery-grid">
+
+<div class="gallery-photo" onclick="openLightbox('PICT0087.jpg')">
+<img src="PICT0087.jpg" alt="Wedding photography">
+</div>
+
+</div>
+</div>
+
+<div class="gallery-category reveal" id="interior">
+<h3>Interior Shots</h3>
+
+<div class="gallery-grid">
+
+<div class="gallery-photo" onclick="openLightbox('IMG_4138.jpg')">
+<img src="IMG_4138.jpg" alt="Interior photography">
+</div>
+
+</div>
+</div>
+
+<div class="gallery-category reveal" id="pets">
+<h3>Pets</h3>
+
+<div class="gallery-grid">
+
+<div class="gallery-photo" onclick="openLightbox('IMG_4197.jpg')">
+<img src="IMG_4197.jpg" alt="Pet photography">
+</div>
+
+</div>
+</div>
+
+<div class="gallery-category reveal" id="details">
+<h3>Details</h3>
+
+<div class="gallery-grid">
+
+<div class="gallery-photo" onclick="openLightbox('IMG_4269.jpg')">
+<img src="IMG_4269.jpg" alt="Automotive detail photography">
+</div>
+
+</div>
 </div>
 
 </section>
@@ -790,7 +951,7 @@ mm_spotting starts.
 <div class="reveal">
 
 <div class="section-number">
-03 / My Approach
+04 / My Approach
 </div>
 
 <h2>
@@ -826,51 +987,21 @@ Create photographs that you actually want to keep.
 <div class="steps">
 
 <div class="step reveal">
-
-<div class="step-number">
-01
-</div>
-
-<h3>
-Plan
-</h3>
-
-<p>
-We discuss your car, location and the style you want.
-</p>
-
+<div class="step-number">01</div>
+<h3>Plan</h3>
+<p>We discuss your car, location and the style you want.</p>
 </div>
 
 <div class="step reveal">
-
-<div class="step-number">
-02
-</div>
-
-<h3>
-Shoot
-</h3>
-
-<p>
-We take our time finding the best angles and details.
-</p>
-
+<div class="step-number">02</div>
+<h3>Shoot</h3>
+<p>We take our time finding the best angles and details.</p>
 </div>
 
 <div class="step reveal">
-
-<div class="step-number">
-03
-</div>
-
-<h3>
-Deliver
-</h3>
-
-<p>
-Your finished edited images are delivered digitally.
-</p>
-
+<div class="step-number">03</div>
+<h3>Deliver</h3>
+<p>Your finished edited images are delivered digitally.</p>
 </div>
 
 </div>
@@ -884,7 +1015,7 @@ Your finished edited images are delivered digitally.
 <div class="reveal">
 
 <div class="section-number">
-04 / Information
+05 / Information
 </div>
 
 <h2>
@@ -904,8 +1035,7 @@ and automotive events.
 </p>
 
 <p>
-I’m based in the UK and am happy to discuss
-shoots in different locations.
+I’m happy to discuss shoots in different locations.
 Travel costs may apply depending on distance.
 </p>
 
@@ -928,7 +1058,7 @@ Ask a question
 <section class="prices" id="prices">
 
 <div class="section-number reveal">
-05 / Prices
+06 / Prices
 </div>
 
 <h2 class="reveal">
@@ -939,72 +1069,39 @@ Shoots
 <div class="price-grid">
 
 <div class="price reveal">
-
-<h3>
-Essential
-</h3>
-
-<div class="price-value">
-£50
-</div>
-
+<h3>Essential</h3>
+<div class="price-value">£50</div>
 <ul>
 <li>30 minute shoot</li>
 <li>1 location</li>
 <li>10 edited images</li>
 <li>Digital delivery</li>
 </ul>
-
-<a href="#contact" class="button">
-Book
-</a>
-
+<a href="#contact" class="button">Book</a>
 </div>
 
 <div class="price reveal">
-
-<h3>
-Standard
-</h3>
-
-<div class="price-value">
-£85
-</div>
-
+<h3>Standard</h3>
+<div class="price-value">£85</div>
 <ul>
 <li>1 hour shoot</li>
 <li>Up to 2 locations</li>
 <li>20 edited images</li>
 <li>Digital delivery</li>
 </ul>
-
-<a href="#contact" class="button">
-Book
-</a>
-
+<a href="#contact" class="button">Book</a>
 </div>
 
 <div class="price reveal">
-
-<h3>
-Premium
-</h3>
-
-<div class="price-value">
-£140
-</div>
-
+<h3>Premium</h3>
+<div class="price-value">£140</div>
 <ul>
 <li>2 hour shoot</li>
 <li>Multiple locations</li>
 <li>30+ edited images</li>
 <li>Digital delivery</li>
 </ul>
-
-<a href="#contact" class="button">
-Book
-</a>
-
+<a href="#contact" class="button">Book</a>
 </div>
 
 </div>
@@ -1014,7 +1111,7 @@ Book
 <section class="blog" id="blog">
 
 <div class="section-number reveal">
-06 / Blog
+07 / Blog
 </div>
 
 <h2 class="reveal">
@@ -1025,54 +1122,21 @@ the camera
 <div class="blog-grid">
 
 <article class="post reveal">
-
-<div class="post-number">
-01 / Coming soon
-</div>
-
-<h3>
-How I photograph cars
-</h3>
-
-<p>
-A look behind the scenes at how
-an automotive shoot comes together.
-</p>
-
+<div class="post-number">01 / Coming soon</div>
+<h3>How I photograph cars</h3>
+<p>A look behind the scenes at how an automotive shoot comes together.</p>
 </article>
 
 <article class="post reveal">
-
-<div class="post-number">
-02 / Coming soon
-</div>
-
-<h3>
-Finding the perfect location
-</h3>
-
-<p>
-Why location, light and background
-matter so much in automotive photography.
-</p>
-
+<div class="post-number">02 / Coming soon</div>
+<h3>Finding the perfect location</h3>
+<p>Why location, light and background matter so much in automotive photography.</p>
 </article>
 
 <article class="post reveal">
-
-<div class="post-number">
-03 / Coming soon
-</div>
-
-<h3>
-The story behind mm_spotting
-</h3>
-
-<p>
-How a passion for cars turned into
-a growing photography business.
-</p>
-
+<div class="post-number">03 / Coming soon</div>
+<h3>The story behind mm_spotting</h3>
+<p>How a passion for cars turned into a growing photography business.</p>
 </article>
 
 </div>
@@ -1082,7 +1146,7 @@ a growing photography business.
 <section class="contact" id="contact">
 
 <div class="section-number reveal">
-07 / Contact
+08 / Contact
 </div>
 
 <h2 class="reveal">
@@ -1097,19 +1161,14 @@ Tell me what you have in mind.
 
 <div class="contact-buttons reveal">
 
-<a
-class="button"
-href="mailto:YOUR-EMAIL-HERE"
->
+<a class="button" href="mailto:YOUR-EMAIL-HERE">
 Enquire about a shoot
 </a>
 
-<a
-class="button"
+<a class="button"
 href="https://www.instagram.com/mm_spotting_/"
 target="_blank"
-rel="noopener"
->
+rel="noopener">
 Instagram
 </a>
 
@@ -1118,54 +1177,55 @@ Instagram
 </section>
 
 <footer>
-
-<span>
-© 2026 mm_spotting Photography
-</span>
-
-<span>
-Automotive Photography
-</span>
-
+<span>© 2026 mm_spotting Photography</span>
+<span>Automotive Photography</span>
 </footer>
+
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+<div class="lightbox-close" onclick="closeLightbox(event)">×</div>
+<img id="lightboxImage" src="" alt="Full size photography">
+</div>
 
 <script>
 
 function toggleMenu(){
-
-const menu =
-document.getElementById("mobileMenu");
-
-menu.classList.toggle("open");
-
+document.getElementById("mobileMenu").classList.toggle("open");
 }
 
-const reveals =
-document.querySelectorAll(".reveal");
+const reveals = document.querySelectorAll(".reveal");
 
-const observer =
-new IntersectionObserver(
-entries => {
-
+const observer = new IntersectionObserver(entries => {
 entries.forEach(entry => {
-
 if(entry.isIntersecting){
-
 entry.target.classList.add("visible");
-
 }
-
 });
+},{threshold:.12});
 
-},
-{
-threshold:.12
+reveals.forEach(el => observer.observe(el));
+
+function openLightbox(src){
+document.getElementById("lightboxImage").src = src;
+document.getElementById("lightbox").classList.add("open");
+document.body.style.overflow = "hidden";
 }
-);
 
-reveals.forEach(el =>
-observer.observe(el)
-);
+function closeLightbox(event){
+if(
+event.target.id === "lightbox" ||
+event.target.classList.contains("lightbox-close")
+){
+document.getElementById("lightbox").classList.remove("open");
+document.body.style.overflow = "";
+}
+}
+
+document.addEventListener("keydown", function(event){
+if(event.key === "Escape"){
+document.getElementById("lightbox").classList.remove("open");
+document.body.style.overflow = "";
+}
+});
 
 </script>
 
