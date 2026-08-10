@@ -3,665 +3,739 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>mm_spotting Photography</title>
-<meta name="description" content="mm_spotting Photography. Automotive photography and future wedding and event photography.">
-
-<link rel="icon" type="image/png" href="logo.png">
 
 <style>
-
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500&display=swap');
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-html{
-scroll-behavior:smooth;
+html {
+  scroll-behavior: smooth;
 }
 
-body{
-background:#f4f2ed;
-color:#171717;
-font-family:Inter,Arial,sans-serif;
-font-weight:300;
+body {
+  background: #0b0b0b;
+  color: #f5f5f5;
+  font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
 }
 
-a{
-color:inherit;
-text-decoration:none;
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
-nav{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:82px;
-padding:0 5%;
-display:flex;
-align-items:center;
-justify-content:space-between;
-z-index:100;
-background:rgba(244,242,237,.92);
-backdrop-filter:blur(12px);
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 76px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5vw;
+  background: rgba(10,10,10,.72);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255,255,255,.08);
 }
 
-.logo{
-font-size:15px;
-letter-spacing:1px;
-font-weight:500;
+.logo {
+  font-size: 18px;
+  letter-spacing: 3px;
+  font-weight: 700;
 }
 
-.nav-links{
-display:flex;
-gap:34px;
-font-size:11px;
-letter-spacing:1.5px;
-text-transform:uppercase;
+.nav-links {
+  display: flex;
+  gap: 32px;
+  font-size: 13px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
-.nav-links a:hover{
-opacity:.45;
+.nav-links a {
+  position: relative;
+  opacity: .8;
+  transition: .3s;
 }
 
-.hero{
-height:100vh;
-min-height:650px;
-position:relative;
-display:flex;
-align-items:flex-end;
-padding:0 6% 75px;
-overflow:hidden;
-background:#d9d6d0;
+.nav-links a:hover {
+  opacity: 1;
 }
 
-.hero-image{
-position:absolute;
-inset:0;
-background-image:
-linear-gradient(to bottom,rgba(0,0,0,.05),rgba(0,0,0,.65)),
-url("./banner.jpg");
-background-size:cover;
-background-position:center;
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -7px;
+  width: 0;
+  height: 1px;
+  background: white;
+  transition: .3s;
 }
 
-.hero-content{
-position:relative;
-z-index:2;
-color:white;
-max-width:850px;
+.nav-links a:hover::after {
+  width: 100%;
 }
 
-.hero-small{
-font-size:10px;
-letter-spacing:4px;
-margin-bottom:22px;
-text-transform:uppercase;
+.hero {
+  height: 100vh;
+  min-height: 650px;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  padding: 0 7vw 9vh;
+  background:
+    linear-gradient(to top, rgba(0,0,0,.9), rgba(0,0,0,.1) 65%),
+    url("banner.jpg") center center / cover no-repeat;
 }
 
-.hero h1{
-font-family:"Cormorant Garamond",Georgia,serif;
-font-size:clamp(65px,10vw,145px);
-font-weight:400;
-line-height:.8;
-letter-spacing:-4px;
+.hero-content {
+  max-width: 850px;
+  animation: heroIn 1.2s ease forwards;
 }
 
-.hero p{
-margin-top:30px;
-font-size:14px;
-max-width:450px;
-line-height:1.8;
+.eyebrow {
+  font-size: 12px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  opacity: .75;
 }
 
-.hero-button{
-display:inline-block;
-margin-top:30px;
-border-bottom:1px solid white;
-padding-bottom:7px;
-font-size:11px;
-letter-spacing:2px;
-text-transform:uppercase;
+.hero h1 {
+  font-size: clamp(48px, 8vw, 105px);
+  line-height: .9;
+  font-weight: 500;
+  letter-spacing: -4px;
+  margin-bottom: 30px;
 }
 
-section{
-padding:140px 8%;
+.hero p {
+  max-width: 560px;
+  font-size: 17px;
+  line-height: 1.7;
+  color: #d0d0d0;
 }
 
-.eyebrow{
-font-size:10px;
-letter-spacing:4px;
-text-transform:uppercase;
-color:#777;
-margin-bottom:22px;
+.button {
+  display: inline-flex;
+  margin-top: 34px;
+  padding: 15px 25px;
+  border: 1px solid rgba(255,255,255,.5);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 11px;
+  transition: .35s;
 }
 
-.section-title{
-font-family:"Cormorant Garamond",Georgia,serif;
-font-size:clamp(55px,8vw,105px);
-font-weight:400;
-line-height:.9;
-letter-spacing:-3px;
+.button:hover {
+  background: white;
+  color: black;
+  transform: translateY(-3px);
 }
 
-.intro{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:12%;
-align-items:end;
+.scroll-indicator {
+  position: absolute;
+  right: 5vw;
+  bottom: 40px;
+  writing-mode: vertical-rl;
+  font-size: 10px;
+  letter-spacing: 3px;
+  opacity: .6;
 }
 
-.intro-text{
-font-size:18px;
-line-height:1.9;
-max-width:600px;
+section {
+  padding: 130px 7vw;
 }
 
-.portfolio{
-background:#fff;
+.section-label {
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  opacity: .55;
+  margin-bottom: 25px;
 }
 
-.portfolio-header{
-display:flex;
-justify-content:space-between;
-align-items:end;
-margin-bottom:70px;
+.intro {
+  max-width: 900px;
 }
 
-.portfolio-link{
-font-size:10px;
-letter-spacing:2px;
-text-transform:uppercase;
-border-bottom:1px solid #222;
-padding-bottom:7px;
+.intro h2 {
+  font-size: clamp(35px, 5vw, 70px);
+  font-weight: 400;
+  line-height: 1.05;
+  margin-bottom: 35px;
 }
 
-.gallery{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:70px 30px;
+.intro p {
+  max-width: 650px;
+  color: #aaa;
+  font-size: 17px;
+  line-height: 1.8;
 }
 
-.photo{
-position:relative;
-background:#e1ded8;
-aspect-ratio:4/3;
-overflow:hidden;
+.reveal {
+  opacity: 0;
+  transform: translateY(55px);
+  transition: opacity .9s ease, transform .9s ease;
 }
 
-.photo.tall{
-aspect-ratio:3/4;
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.photo img{
-width:100%;
-height:100%;
-object-fit:cover;
-display:block;
+.portfolio {
+  background: #101010;
 }
 
-.services{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:12%;
+.portfolio-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 60px;
+  gap: 30px;
 }
 
-.service-list{
-border-top:1px solid #bbb;
+.portfolio-heading h2 {
+  font-size: clamp(42px, 6vw, 75px);
+  font-weight: 400;
 }
 
-.service{
-padding:30px 0;
-border-bottom:1px solid #bbb;
-display:flex;
-justify-content:space-between;
-align-items:center;
+.portfolio-heading p {
+  max-width: 350px;
+  color: #888;
+  line-height: 1.6;
 }
 
-.service h3{
-font-family:"Cormorant Garamond",Georgia,serif;
-font-size:38px;
-font-weight:400;
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
 }
 
-.service span{
-font-size:10px;
-letter-spacing:2px;
-color:#777;
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  background: #181818;
+  min-height: 420px;
 }
 
-.about{
-background:#171717;
-color:#f4f2ed;
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:12%;
+.gallery-item.large {
+  min-height: 620px;
 }
 
-.about .eyebrow{
-color:#999;
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .8s cubic-bezier(.2,.7,.2,1);
 }
 
-.about-text{
-font-size:18px;
-line-height:2;
-max-width:600px;
+.gallery-item:hover img {
+  transform: scale(1.06);
 }
 
-.future{
-text-align:center;
-background:#ebe8e1;
+.placeholder {
+  height: 100%;
+  min-height: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #555;
+  letter-spacing: 3px;
+  font-size: 11px;
+  text-transform: uppercase;
 }
 
-.future-text{
-max-width:650px;
-margin:35px auto 0;
-font-size:16px;
-line-height:1.9;
-color:#555;
+.gallery-caption {
+  position: absolute;
+  left: 25px;
+  bottom: 25px;
+  z-index: 2;
+  opacity: 0;
+  transform: translateY(15px);
+  transition: .4s;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 11px;
 }
 
-.booking{
-text-align:center;
-padding:180px 8%;
+.gallery-item:hover .gallery-caption {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.booking h2{
-font-family:"Cormorant Garamond",Georgia,serif;
-font-size:clamp(60px,9vw,125px);
-font-weight:400;
-line-height:.85;
-letter-spacing:-4px;
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 100px;
+  align-items: center;
 }
 
-.booking p{
-margin:35px auto;
-max-width:500px;
-font-size:15px;
-line-height:1.8;
-color:#666;
+.about h2 {
+  font-size: clamp(42px, 6vw, 75px);
+  font-weight: 400;
+  line-height: 1;
 }
 
-.booking-button{
-display:inline-block;
-padding:16px 30px;
-background:#171717;
-color:#fff;
-font-size:10px;
-letter-spacing:2px;
-text-transform:uppercase;
+.about-text {
+  color: #aaa;
+  line-height: 1.9;
+  font-size: 16px;
 }
 
-.instagram{
-padding-top:0;
-text-align:center;
+.about-text p + p {
+  margin-top: 25px;
 }
 
-.instagram a{
-font-family:"Cormorant Garamond",Georgia,serif;
-font-size:38px;
-border-bottom:1px solid #222;
-padding-bottom:8px;
+.services {
+  background: #e9e7e2;
+  color: #111;
 }
 
-footer{
-padding:35px 8%;
-border-top:1px solid #ccc;
-display:flex;
-justify-content:space-between;
-font-size:9px;
-letter-spacing:2px;
-text-transform:uppercase;
-color:#777;
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: #aaa;
+  margin-top: 60px;
 }
 
-@media(max-width:750px){
-
-nav{
-height:70px;
-padding:0 5%;
+.service {
+  background: #e9e7e2;
+  padding: 45px 35px;
+  min-height: 260px;
+  transition: .4s;
 }
 
-.nav-links{
-gap:15px;
-font-size:9px;
+.service:hover {
+  background: #111;
+  color: white;
 }
 
-.hero{
-padding:0 6% 55px;
+.service-number {
+  font-size: 11px;
+  opacity: .5;
 }
 
-.hero h1{
-letter-spacing:-2px;
+.service h3 {
+  margin-top: 70px;
+  font-size: 25px;
+  font-weight: 400;
 }
 
-section{
-padding:90px 6%;
+.service p {
+  margin-top: 15px;
+  line-height: 1.6;
+  opacity: .65;
 }
 
-.intro,
-.services,
-.about{
-grid-template-columns:1fr;
-gap:50px;
+.future {
+  background: #0b0b0b;
 }
 
-.gallery{
-grid-template-columns:1fr;
-gap:30px;
+.future-content {
+  max-width: 900px;
 }
 
-.portfolio-header{
-display:block;
+.future h2 {
+  font-size: clamp(42px, 7vw, 90px);
+  font-weight: 400;
+  line-height: .98;
 }
 
-.portfolio-link{
-display:inline-block;
-margin-top:25px;
+.future p {
+  max-width: 620px;
+  margin-top: 35px;
+  color: #999;
+  font-size: 17px;
+  line-height: 1.8;
 }
 
-.service h3{
-font-size:32px;
+.contact {
+  min-height: 75vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #151515;
 }
 
-.booking{
-padding:120px 6%;
+.contact h2 {
+  font-size: clamp(50px, 9vw, 120px);
+  font-weight: 400;
+  line-height: .9;
 }
 
-footer{
-display:block;
-line-height:2;
+.contact p {
+  margin-top: 35px;
+  color: #aaa;
+  max-width: 500px;
+  line-height: 1.7;
 }
 
+.contact-buttons {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
 }
 
+.instagram {
+  border-color: #555;
+}
+
+footer {
+  padding: 35px 7vw;
+  display: flex;
+  justify-content: space-between;
+  color: #666;
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+@keyframes heroIn {
+  from {
+    opacity: 0;
+    transform: translateY(35px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 800px) {
+
+  .nav {
+    height: 65px;
+    padding: 0 5vw;
+  }
+
+  .logo {
+    font-size: 14px;
+    letter-spacing: 2px;
+  }
+
+  .nav-links {
+    gap: 15px;
+    font-size: 9px;
+  }
+
+  .hero {
+    min-height: 650px;
+    padding: 0 6vw 7vh;
+    background-position: center;
+  }
+
+  .hero h1 {
+    font-size: 52px;
+    letter-spacing: -2px;
+  }
+
+  .hero p {
+    font-size: 15px;
+  }
+
+  section {
+    padding: 90px 6vw;
+  }
+
+  .gallery {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .gallery-item,
+  .gallery-item.large {
+    min-height: 400px;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 45px;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service {
+    min-height: 220px;
+  }
+
+  .service h3 {
+    margin-top: 45px;
+  }
+
+  .portfolio-heading {
+    display: block;
+  }
+
+  .portfolio-heading p {
+    margin-top: 20px;
+  }
+
+  .scroll-indicator {
+    display: none;
+  }
+
+  footer {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
 </style>
 </head>
 
 <body>
 
-<nav>
+<nav class="nav">
+  <a href="#top" class="logo">mm_spotting</a>
 
-<a href="#home" class="logo">
-mm_spotting
-</a>
-
-<div class="nav-links">
-<a href="#portfolio">Portfolio</a>
-<a href="#services">Services</a>
-<a href="#about">About</a>
-<a href="#contact">Contact</a>
-</div>
-
+  <div class="nav-links">
+    <a href="#portfolio">Portfolio</a>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+  </div>
 </nav>
 
-<section class="hero" id="home">
+<header class="hero" id="top">
+  <div class="hero-content">
+    <div class="eyebrow">mm_spotting Photography</div>
 
-<div class="hero-image"></div>
+    <h1>Automotive<br>Photography</h1>
 
-<div class="hero-content">
+    <p>
+      Clean, detailed and memorable photography
+      for cars, owners, enthusiasts and automotive events.
+    </p>
 
-<div class="hero-small">
-Automotive Photographer
-</div>
+    <a href="#contact" class="button">
+      Book a shoot
+    </a>
+  </div>
 
-<h1>
-mm_spotting
-<br>
-Photography
-</h1>
+  <div class="scroll-indicator">
+    Scroll to explore
+  </div>
+</header>
 
-<p>
-Automotive photography focused on
-capturing cars, details and moments
-worth remembering.
-</p>
+<section class="intro reveal">
+  <div class="section-label">01 / Introduction</div>
 
-<a class="hero-button" href="#portfolio">
-View my work
-</a>
+  <h2>
+    Images made to capture
+    the character of every car
+  </h2>
 
-</div>
-
-</section>
-
-<section class="intro">
-
-<div>
-
-<div class="eyebrow">
-Welcome
-</div>
-
-<h2 class="section-title">
-Photography<br>
-with purpose
-</h2>
-
-</div>
-
-<div class="intro-text">
-
-I’m an automotive photographer focused
-on creating clean, detailed and
-memorable images of cars.
-
-I’m currently building my portfolio
-and looking to work with car owners,
-enthusiasts and events.
-
-In the future I also hope to expand
-into weddings and other special events.
-
-</div>
-
+  <p>
+    I’m an automotive photographer focused on creating
+    clean, detailed and memorable images of cars.
+    I’m currently building my portfolio and looking to
+    work with car owners, enthusiasts and events.
+  </p>
 </section>
 
 <section class="portfolio" id="portfolio">
 
-<div class="portfolio-header">
+  <div class="portfolio-heading reveal">
+    <div>
+      <div class="section-label">02 / Selected work</div>
+      <h2>Portfolio</h2>
+    </div>
 
-<div>
+    <p>
+      Automotive photography is where
+      mm_spotting starts.
+    </p>
+  </div>
 
-<div class="eyebrow">
-Selected work
-</div>
+  <div class="gallery">
 
-<h2 class="section-title">
-Portfolio
-</h2>
+    <div class="gallery-item large reveal">
+      <img src="banner.jpg" alt="Automotive photography">
+      <div class="gallery-caption">Featured image</div>
+    </div>
 
-</div>
+    <div class="gallery-item reveal">
+      <div class="placeholder">
+        More images coming soon
+      </div>
+    </div>
 
-<a class="portfolio-link" href="#contact">
-Book a shoot
-</a>
+    <div class="gallery-item reveal">
+      <div class="placeholder">
+        More images coming soon
+      </div>
+    </div>
 
-</div>
+    <div class="gallery-item large reveal">
+      <div class="placeholder">
+        More images coming soon
+      </div>
+    </div>
 
-<div class="gallery">
+  </div>
+</section>
 
-<div class="photo">
-<img src="img_2909.jpg" alt="Automotive photography">
-</div>
+<section class="about" id="about">
 
-<div class="photo">
-<img src="car2.jpg" alt="Automotive photography">
-</div>
+  <div class="about-grid">
 
-<div class="photo tall">
-<img src="car3.jpg" alt="Automotive photography">
-</div>
+    <div class="reveal">
+      <div class="section-label">03 / About</div>
+      <h2>
+        Behind<br>
+        the lens
+      </h2>
+    </div>
 
-<div class="photo">
-<img src="car4.jpg" alt="Automotive photography">
-</div>
+    <div class="about-text reveal">
+      <p>
+        I’m the photographer behind mm_spotting Photography.
+      </p>
 
-<div class="photo">
-<img src="car5.jpg" alt="Automotive photography">
-</div>
+      <p>
+        My main passion is cars and automotive photography.
+        I enjoy capturing the details, atmosphere and
+        character that make every car different.
+      </p>
 
-<div class="photo tall">
-<img src="car6.jpg" alt="Automotive photography">
-</div>
+      <p>
+        As I grow my photography business, I’m also looking
+        to expand into events and weddings in the future.
+      </p>
 
-</div>
+      <a href="#contact" class="button">
+        Work with me
+      </a>
+    </div>
+
+  </div>
 
 </section>
 
 <section class="services" id="services">
 
-<div>
+  <div class="section-label reveal">04 / What I photograph</div>
 
-<div class="eyebrow">
-What I photograph
-</div>
+  <div class="services-grid">
 
-<h2 class="section-title">
-Services
-</h2>
+    <div class="service reveal">
+      <div class="service-number">01</div>
+      <h3>Automotive</h3>
+      <p>
+        Individual cars, collections, meets and automotive content.
+      </p>
+    </div>
 
-</div>
+    <div class="service reveal">
+      <div class="service-number">02</div>
+      <h3>Events</h3>
+      <p>
+        Automotive events and special occasions as the business grows.
+      </p>
+    </div>
 
-<div class="service-list">
+    <div class="service reveal">
+      <div class="service-number">03</div>
+      <h3>Future work</h3>
+      <p>
+        Weddings and private events are areas I hope to expand into.
+      </p>
+    </div>
 
-<div class="service">
-<h3>Automotive</h3>
-<span>Available</span>
-</div>
-
-<div class="service">
-<h3>Events</h3>
-<span>Future</span>
-</div>
-
-<div class="service">
-<h3>Weddings</h3>
-<span>Future</span>
-</div>
-
-</div>
-
-</section>
-
-<section class="about" id="about">
-
-<div>
-
-<div class="eyebrow">
-About me
-</div>
-
-<h2 class="section-title">
-Behind<br>
-the camera
-</h2>
-
-</div>
-
-<div class="about-text">
-
-I’m the photographer behind
-mm_spotting Photography.
-
-My main passion is cars and automotive
-photography. I enjoy capturing the
-details, atmosphere and character that
-make every car different.
-
-As I grow my photography business,
-I’m also looking to expand into events
-and weddings in the future.
-
-Every shoot is about creating images
-that you’ll actually want to keep.
-
-</div>
+  </div>
 
 </section>
 
 <section class="future">
 
-<div class="eyebrow">
-Future
-</div>
+  <div class="future-content reveal">
 
-<h2 class="section-title">
-More than cars
-</h2>
+    <div class="section-label">05 / Looking ahead</div>
 
-<div class="future-text">
+    <h2>
+      More than<br>
+      just cars
+    </h2>
 
-Automotive photography is where
-mm_spotting starts.
+    <p>
+      Automotive photography is where mm_spotting starts.
+      As the business grows, I hope to also open bookings
+      for weddings, private events and other special occasions.
+    </p>
 
-As the business grows, I hope to also
-open bookings for weddings, private
-events and other special occasions.
-
-</div>
+  </div>
 
 </section>
 
-<section class="booking" id="contact">
+<section class="contact" id="contact">
 
-<div class="eyebrow">
-Let's work together
-</div>
+  <div class="section-label reveal">06 / Contact</div>
 
-<h2>
-Book a<br>
-photography shoot
-</h2>
+  <h2 class="reveal">
+    Let’s create<br>
+    something.
+  </h2>
 
-<p>
-Have a car you want photographed?
-Planning an event?
+  <p class="reveal">
+    Get in touch and tell me what you have in mind.
+  </p>
 
-Get in touch and tell me what you
-have in mind.
-</p>
+  <div class="contact-buttons reveal">
 
-<a
-class="booking-button"
-href="mailto:YOUR-EMAIL-HERE"
->
-Enquire about a shoot
-</a>
+    <a
+      class="button"
+      href="mailto:YOUR-EMAIL-HERE"
+    >
+      Enquire about a shoot
+    </a>
 
-</section>
+    <a
+      class="button instagram"
+      href="https://www.instagram.com/mm_spotting_/"
+      target="_blank"
+      rel="noopener"
+    >
+      Instagram
+    </a>
 
-<section class="instagram">
-
-<div class="eyebrow">
-Follow my work
-</div>
-
-<a
-href="https://www.instagram.com/mm_spotting_/"
-target="_blank"
-rel="noopener"
->
-@mm_spotting_
-</a>
+  </div>
 
 </section>
 
 <footer>
-
-<div>
-mm_spotting Photography
-</div>
-
-<div>
-© 2026
-</div>
-
+  <span>© 2026 mm_spotting Photography</span>
+  <span>Automotive Photography</span>
 </footer>
+
+<script>
+const reveals = document.querySelectorAll(".reveal");
+
+const observer = new IntersectionObserver(
+  entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+      }
+    });
+  },
+  {
+    threshold: 0.12
+  }
+);
+
+reveals.forEach(element => observer.observe(element));
+</script>
 
 </body>
 </html>
