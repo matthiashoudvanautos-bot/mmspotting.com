@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>mm_spotting Photography</title>
+<meta name="description" content="mm_spotting Photography. Automotive photography and future wedding and event photography.">
+
+<link rel="icon" type="image/png" href="logo.png">
 
 <style>
 
@@ -32,8 +35,6 @@ color:inherit;
 text-decoration:none;
 }
 
-/* NAV */
-
 nav{
 position:fixed;
 top:0;
@@ -45,8 +46,7 @@ display:flex;
 align-items:center;
 justify-content:space-between;
 z-index:100;
-
-background:rgba(244,242,237,.9);
+background:rgba(244,242,237,.92);
 backdrop-filter:blur(12px);
 }
 
@@ -64,15 +64,9 @@ letter-spacing:1.5px;
 text-transform:uppercase;
 }
 
-.nav-links a{
-transition:opacity .3s;
-}
-
 .nav-links a:hover{
 opacity:.45;
 }
-
-/* HERO */
 
 .hero{
 height:100vh;
@@ -88,32 +82,11 @@ background:#d9d6d0;
 .hero-image{
 position:absolute;
 inset:0;
-
 background-image:
-linear-gradient(
-to bottom,
-rgba(0,0,0,.05),
-rgba(0,0,0,.65)
-),
-url("images/banner.jpg");
-
+linear-gradient(to bottom,rgba(0,0,0,.05),rgba(0,0,0,.65)),
+url("banner.jpg");
 background-size:cover;
 background-position:center;
-
-}
-
-.hero-image::after{
-content:"BANNER PHOTO";
-position:absolute;
-inset:0;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:10px;
-letter-spacing:4px;
-color:#777;
-background:#ddd9d2;
-z-index:-1;
 }
 
 .hero-content{
@@ -127,6 +100,7 @@ max-width:850px;
 font-size:10px;
 letter-spacing:4px;
 margin-bottom:22px;
+text-transform:uppercase;
 }
 
 .hero h1{
@@ -140,7 +114,6 @@ letter-spacing:-4px;
 .hero p{
 margin-top:30px;
 font-size:14px;
-letter-spacing:.4px;
 max-width:450px;
 line-height:1.8;
 }
@@ -154,8 +127,6 @@ font-size:11px;
 letter-spacing:2px;
 text-transform:uppercase;
 }
-
-/* GENERAL */
 
 section{
 padding:140px 8%;
@@ -177,8 +148,6 @@ line-height:.9;
 letter-spacing:-3px;
 }
 
-/* INTRO */
-
 .intro{
 display:grid;
 grid-template-columns:1fr 1fr;
@@ -191,12 +160,6 @@ font-size:18px;
 line-height:1.9;
 max-width:600px;
 }
-
-.intro-text strong{
-font-weight:500;
-}
-
-/* PORTFOLIO */
 
 .portfolio{
 background:#fff;
@@ -241,19 +204,6 @@ object-fit:cover;
 display:block;
 }
 
-.placeholder{
-position:absolute;
-inset:0;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:9px;
-letter-spacing:4px;
-color:#999;
-}
-
-/* SERVICES */
-
 .services{
 display:grid;
 grid-template-columns:1fr 1fr;
@@ -284,12 +234,9 @@ letter-spacing:2px;
 color:#777;
 }
 
-/* ABOUT */
-
 .about{
 background:#171717;
 color:#f4f2ed;
-
 display:grid;
 grid-template-columns:1fr 1fr;
 gap:12%;
@@ -305,8 +252,6 @@ line-height:2;
 max-width:600px;
 }
 
-/* FUTURE */
-
 .future{
 text-align:center;
 background:#ebe8e1;
@@ -319,8 +264,6 @@ font-size:16px;
 line-height:1.9;
 color:#555;
 }
-
-/* BOOKING */
 
 .booking{
 text-align:center;
@@ -351,14 +294,7 @@ color:#fff;
 font-size:10px;
 letter-spacing:2px;
 text-transform:uppercase;
-transition:.3s;
 }
-
-.booking-button:hover{
-background:#555;
-}
-
-/* INSTAGRAM */
 
 .instagram{
 padding-top:0;
@@ -372,8 +308,6 @@ border-bottom:1px solid #222;
 padding-bottom:8px;
 }
 
-/* FOOTER */
-
 footer{
 padding:35px 8%;
 border-top:1px solid #ccc;
@@ -384,8 +318,6 @@ letter-spacing:2px;
 text-transform:uppercase;
 color:#777;
 }
-
-/* MOBILE */
 
 @media(max-width:750px){
 
@@ -452,8 +384,6 @@ line-height:2;
 
 <body>
 
-<!-- NAVIGATION -->
-
 <nav>
 
 <a href="#home" class="logo">
@@ -461,21 +391,13 @@ mm_spotting
 </a>
 
 <div class="nav-links">
-
 <a href="#portfolio">Portfolio</a>
-
 <a href="#services">Services</a>
-
 <a href="#about">About</a>
-
 <a href="#contact">Contact</a>
-
 </div>
 
 </nav>
-
-
-<!-- HERO -->
 
 <section class="hero" id="home">
 
@@ -507,9 +429,6 @@ View my work
 
 </section>
 
-
-<!-- INTRO -->
-
 <section class="intro">
 
 <div>
@@ -535,17 +454,12 @@ I’m currently building my portfolio
 and looking to work with car owners,
 enthusiasts and events.
 
-<strong>
-Future bookings will also include
-weddings and other events.
-</strong>
+In the future I also hope to expand
+into weddings and other special events.
 
 </div>
 
 </section>
-
-
-<!-- PORTFOLIO -->
 
 <section class="portfolio" id="portfolio">
 
@@ -569,39 +483,35 @@ Book a shoot
 
 </div>
 
-
 <div class="gallery">
 
 <div class="photo">
-<div class="placeholder">PHOTO 01</div>
+<img src="car1.jpg" alt="Automotive photography">
 </div>
 
 <div class="photo">
-<div class="placeholder">PHOTO 02</div>
+<img src="car2.jpg" alt="Automotive photography">
 </div>
 
 <div class="photo tall">
-<div class="placeholder">PHOTO 03</div>
+<img src="car3.jpg" alt="Automotive photography">
 </div>
 
 <div class="photo">
-<div class="placeholder">PHOTO 04</div>
+<img src="car4.jpg" alt="Automotive photography">
 </div>
 
 <div class="photo">
-<div class="placeholder">PHOTO 05</div>
+<img src="car5.jpg" alt="Automotive photography">
 </div>
 
 <div class="photo tall">
-<div class="placeholder">PHOTO 06</div>
+<img src="car6.jpg" alt="Automotive photography">
 </div>
 
 </div>
 
 </section>
-
-
-<!-- SERVICES -->
 
 <section class="services" id="services">
 
@@ -617,39 +527,26 @@ Services
 
 </div>
 
-
 <div class="service-list">
 
 <div class="service">
-
 <h3>Automotive</h3>
-
-<span>Current</span>
-
+<span>Available</span>
 </div>
 
 <div class="service">
-
 <h3>Events</h3>
-
 <span>Future</span>
-
 </div>
 
 <div class="service">
-
 <h3>Weddings</h3>
-
 <span>Future</span>
-
 </div>
 
 </div>
 
 </section>
-
-
-<!-- ABOUT -->
 
 <section class="about" id="about">
 
@@ -665,7 +562,6 @@ the camera
 </h2>
 
 </div>
-
 
 <div class="about-text">
 
@@ -688,13 +584,10 @@ that you’ll actually want to keep.
 
 </section>
 
-
-<!-- FUTURE SERVICES -->
-
 <section class="future">
 
 <div class="eyebrow">
-Coming soon
+Future
 </div>
 
 <h2 class="section-title">
@@ -706,16 +599,13 @@ More than cars
 Automotive photography is where
 mm_spotting starts.
 
-In the future I’ll also be opening
-bookings for weddings, private events
-and other special occasions.
+As the business grows, I hope to also
+open bookings for weddings, private
+events and other special occasions.
 
 </div>
 
 </section>
-
-
-<!-- BOOKING -->
 
 <section class="booking" id="contact">
 
@@ -745,9 +635,6 @@ Enquire about a shoot
 
 </section>
 
-
-<!-- INSTAGRAM -->
-
 <section class="instagram">
 
 <div class="eyebrow">
@@ -763,9 +650,6 @@ rel="noopener"
 </a>
 
 </section>
-
-
-<!-- FOOTER -->
 
 <footer>
 
