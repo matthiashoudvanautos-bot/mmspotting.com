@@ -4,17 +4,11 @@
 <head>
 
 <meta charset="UTF-8">
-
-<meta
-name="viewport"
-content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>mm_spotting Photography</title>
 
-<link
-rel="icon"
-type="image/jpeg"
-href="IMG_1525.jpg">
+<link rel="icon" type="image/jpeg" href="IMG_1525.jpg">
 
 <style>
 
@@ -92,14 +86,12 @@ opacity:1;
 display:flex;
 justify-content:center;
 align-items:center;
-cursor:pointer;
 }
 
 .logo img{
 width:70px;
 height:70px;
 object-fit:cover;
-display:block;
 border-radius:50%;
 }
 
@@ -166,11 +158,7 @@ opacity:1;
 content:"";
 position:absolute;
 inset:0;
-background:linear-gradient(
-to top,
-rgba(0,0,0,.78),
-rgba(0,0,0,.08) 70%
-);
+background:linear-gradient(to top,rgba(0,0,0,.78),rgba(0,0,0,.08) 70%);
 }
 
 .hero-content{
@@ -219,16 +207,9 @@ border:0;
 background:none;
 color:white;
 font-size:45px;
-font-weight:200;
 cursor:pointer;
 padding:15px;
 opacity:.7;
-transition:.25s;
-}
-
-.hero-arrow:hover{
-opacity:1;
-transform:translateY(-50%) scale(1.15);
 }
 
 .hero-arrow.left{
@@ -253,14 +234,13 @@ width:28px;
 height:2px;
 background:rgba(255,255,255,.35);
 cursor:pointer;
-transition:.3s;
 }
 
 .hero-dot.active{
 background:white;
 }
 
-/* BUTTON */
+/* BUTTONS */
 
 .button{
 display:inline-block;
@@ -291,7 +271,7 @@ background:white;
 color:#171717;
 }
 
-/* MOVING TEXT */
+/* MARQUEE */
 
 .marquee{
 overflow:hidden;
@@ -311,15 +291,8 @@ text-transform:uppercase;
 }
 
 @keyframes marquee{
-
-from{
-transform:translateX(0);
-}
-
-to{
-transform:translateX(-50%);
-}
-
+from{transform:translateX(0);}
+to{transform:translateX(-50%);}
 }
 
 /* GENERAL */
@@ -357,25 +330,38 @@ align-items:center;
 
 .about-grid{
 display:grid;
-grid-template-columns:1.15fr .85fr;
-gap:70px;
+grid-template-columns:1.05fr .95fr;
+gap:80px;
 align-items:center;
 width:100%;
 }
 
 .about-photo{
+position:relative;
 width:100%;
-max-width:500px;
+max-width:520px;
 justify-self:end;
 overflow:hidden;
 }
 
 .about-photo img{
 width:100%;
-height:620px;
+height:680px;
 object-fit:cover;
 object-position:center;
 display:block;
+}
+
+.about-photo::after{
+content:"Behind the camera";
+position:absolute;
+bottom:18px;
+right:18px;
+background:rgba(244,243,239,.88);
+padding:10px 14px;
+font-size:9px;
+letter-spacing:2px;
+text-transform:uppercase;
 }
 
 .intro h2{
@@ -464,98 +450,6 @@ text-transform:uppercase;
 background:rgba(244,243,239,.85);
 padding:8px 12px;
 z-index:5;
-}
-
-/* GALLERY */
-
-.site-main.hidden{
-display:none;
-}
-
-.gallery-view{
-display:none;
-min-height:100vh;
-padding:150px 7vw 100px;
-background:#f4f3ef;
-}
-
-.gallery-view.active{
-display:block;
-}
-
-.gallery-back{
-display:inline-block;
-margin-bottom:55px;
-font-size:11px;
-letter-spacing:2px;
-text-transform:uppercase;
-cursor:pointer;
-opacity:.6;
-}
-
-.gallery-categories{
-display:flex;
-gap:12px;
-flex-wrap:wrap;
-margin-top:45px;
-margin-bottom:70px;
-}
-
-.category-button{
-border:1px solid #aaa;
-background:transparent;
-padding:12px 18px;
-font-size:10px;
-letter-spacing:2px;
-text-transform:uppercase;
-cursor:pointer;
-}
-
-.category-button:hover,
-.category-button.active{
-background:#171717;
-color:white;
-border-color:#171717;
-}
-
-.gallery-category{
-display:none;
-}
-
-.gallery-category.active{
-display:block;
-}
-
-.gallery-category h3{
-font-size:clamp(34px,5vw,60px);
-font-weight:400;
-margin-bottom:35px;
-}
-
-.gallery-grid{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:18px;
-}
-
-.gallery-photo{
-height:420px;
-overflow:hidden;
-background:#ddd;
-cursor:pointer;
-position:relative;
-}
-
-.gallery-photo img{
-width:100%;
-height:100%;
-object-fit:cover;
-display:block;
-transition:.6s;
-}
-
-.gallery-photo:hover img{
-transform:scale(1.04);
 }
 
 /* COPYRIGHT */
@@ -870,6 +764,98 @@ font-weight:600;
 color:#171717;
 }
 
+/* STORY PHOTOS */
+
+.story-photo{
+position:relative;
+margin:55px 0;
+overflow:hidden;
+}
+
+.story-photo img{
+width:100%;
+max-height:720px;
+object-fit:cover;
+display:block;
+}
+
+.story-photo.portrait{
+max-width:560px;
+}
+
+.story-photo.portrait img{
+max-height:760px;
+object-position:center;
+}
+
+.story-caption{
+font-size:9px;
+letter-spacing:2px;
+text-transform:uppercase;
+opacity:.5;
+margin-top:12px;
+}
+
+.story-photo::after,
+.collection-photo::after{
+content:"© mm_spotting Photography";
+position:absolute;
+left:14px;
+bottom:32px;
+font-size:9px;
+letter-spacing:1px;
+color:rgba(20,20,20,.5);
+text-shadow:0 1px 3px rgba(255,255,255,.5);
+pointer-events:none;
+}
+
+/* COLLECTION */
+
+.collection-section{
+margin:55px 0 65px;
+}
+
+.collection-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:14px;
+margin-top:20px;
+}
+
+.collection-photo{
+position:relative;
+overflow:hidden;
+background:#ddd;
+}
+
+.collection-photo:first-child{
+grid-column:1 / -1;
+}
+
+.collection-photo img{
+width:100%;
+height:350px;
+object-fit:cover;
+display:block;
+transition:.5s;
+}
+
+.collection-photo:first-child img{
+height:430px;
+}
+
+.collection-photo:hover img{
+transform:scale(1.025);
+}
+
+.collection-caption{
+font-size:9px;
+letter-spacing:2px;
+text-transform:uppercase;
+opacity:.5;
+margin-top:12px;
+}
+
 /* CONTACT */
 
 .contact{
@@ -933,46 +919,11 @@ padding:16px;
 font-size:15px;
 color:#171717;
 outline:none;
-transition:.25s;
 }
 
 .form-field textarea{
 min-height:190px;
 resize:vertical;
-}
-
-.form-field input:focus,
-.form-field select:focus,
-.form-field textarea:focus{
-border-color:#171717;
-background:rgba(255,255,255,.6);
-}
-
-.contact-submit{
-margin-top:0;
-}
-
-.contact-submit:disabled{
-opacity:.5;
-cursor:not-allowed;
-}
-
-.form-message{
-margin-top:22px;
-font-size:14px;
-line-height:1.6;
-}
-
-.form-success{
-color:#225b38;
-}
-
-.form-error{
-color:#8c2929;
-}
-
-.contact-details{
-padding-top:5px;
 }
 
 .contact-details p{
@@ -1018,74 +969,109 @@ height:20px;
 fill:currentColor;
 }
 
-/* FLOATING CONTACT DIAL */
-
-.contact-dial{
-position:fixed;
-right:-105px;
-top:50%;
-width:140px;
-height:140px;
-border-radius:50%;
-border:1px solid rgba(23,23,23,.22);
-background:
-linear-gradient(
-145deg,
-rgba(208,178,145,.96),
-rgba(231,221,207,.96) 48%,
-rgba(178,194,178,.96)
-);
-z-index:1400;
-cursor:pointer;
-box-shadow:
-0 10px 35px rgba(0,0,0,.12),
-inset 0 0 0 8px rgba(255,255,255,.18);
-transition:
-right .55s cubic-bezier(.2,.8,.2,1),
-box-shadow .35s,
-filter .35s;
-transform:translateY(-50%) rotate(0deg);
+.form-message{
+margin-top:22px;
+font-size:14px;
 }
 
-.contact-dial:hover,
-.contact-dial:focus{
-right:-18px;
-box-shadow:
-0 14px 45px rgba(0,0,0,.18),
-inset 0 0 0 8px rgba(255,255,255,.22);
-filter:saturate(1.08);
-outline:none;
+.form-success{
+color:#225b38;
 }
 
-.contact-dial-ring{
-position:absolute;
-inset:14px;
-border:1px dashed rgba(23,23,23,.36);
-border-radius:50%;
+.form-error{
+color:#8c2929;
 }
 
-.contact-dial-dot{
-position:absolute;
-width:7px;
-height:7px;
-border-radius:50%;
-background:rgba(23,23,23,.6);
-top:17px;
-left:50%;
-transform:translateX(-50%);
+/* GALLERY VIEW */
+
+.site-main.hidden{
+display:none;
 }
 
-.contact-dial-text{
-position:absolute;
-left:7px;
-top:50%;
-transform:translateY(-50%) rotate(180deg);
-writing-mode:vertical-rl;
-font-size:9px;
-letter-spacing:1.4px;
+.gallery-view{
+display:none;
+min-height:100vh;
+padding:150px 7vw 100px;
+background:#f4f3ef;
+}
+
+.gallery-view.active{
+display:block;
+}
+
+.gallery-back{
+display:inline-block;
+margin-bottom:55px;
+font-size:11px;
+letter-spacing:2px;
 text-transform:uppercase;
-font-weight:700;
-color:rgba(23,23,23,.74);
+cursor:pointer;
+opacity:.6;
+}
+
+.gallery-categories{
+display:flex;
+gap:12px;
+flex-wrap:wrap;
+margin-top:45px;
+margin-bottom:70px;
+}
+
+.category-button{
+border:1px solid #aaa;
+background:transparent;
+padding:12px 18px;
+font-size:10px;
+letter-spacing:2px;
+text-transform:uppercase;
+cursor:pointer;
+}
+
+.category-button:hover,
+.category-button.active{
+background:#171717;
+color:white;
+border-color:#171717;
+}
+
+.gallery-category{
+display:none;
+}
+
+.gallery-category.active{
+display:block;
+}
+
+.gallery-category h3{
+font-size:clamp(34px,5vw,60px);
+font-weight:400;
+margin-bottom:35px;
+}
+
+.gallery-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:18px;
+}
+
+.gallery-photo{
+height:420px;
+overflow:hidden;
+background:#ddd;
+cursor:pointer;
+position:relative;
+}
+
+.gallery-photo img{
+width:100%;
+height:100%;
+object-fit:cover;
+display:block;
+transition:.6s;
+}
+
+.gallery-photo:hover img{
+transform:scale(1.04);
 }
 
 /* LIGHTBOX */
@@ -1099,7 +1085,6 @@ display:none;
 align-items:center;
 justify-content:center;
 padding:30px;
-touch-action:pan-y;
 }
 
 .lightbox.open{
@@ -1109,8 +1094,6 @@ display:flex;
 .lightbox-image-wrap{
 position:relative;
 display:inline-flex;
-align-items:center;
-justify-content:center;
 max-width:90vw;
 max-height:90vh;
 }
@@ -1135,7 +1118,6 @@ letter-spacing:1px;
 color:rgba(20,20,20,.52);
 text-shadow:0 1px 3px rgba(255,255,255,.45);
 pointer-events:none;
-z-index:4;
 }
 
 .lightbox-close{
@@ -1145,7 +1127,6 @@ right:30px;
 color:white;
 font-size:32px;
 cursor:pointer;
-z-index:5;
 }
 
 .lightbox-arrow{
@@ -1159,11 +1140,6 @@ font-size:50px;
 cursor:pointer;
 padding:15px;
 opacity:.7;
-z-index:5;
-}
-
-.lightbox-arrow:hover{
-opacity:1;
 }
 
 .lightbox-arrow.left{
@@ -1183,7 +1159,6 @@ color:white;
 font-size:10px;
 letter-spacing:2px;
 opacity:.7;
-z-index:5;
 }
 
 /* FOOTER */
@@ -1239,25 +1214,24 @@ font-size:55px;
 letter-spacing:-3px;
 }
 
-.hero p{
-font-size:14px;
-}
-
-.hero-arrow{
-font-size:34px;
-padding:8px;
-}
-
-.hero-arrow.left{
-left:7px;
-}
-
-.hero-arrow.right{
-right:7px;
-}
-
 section{
 padding:90px 6vw;
+}
+
+.about-grid,
+.approach-grid,
+.info-grid,
+.contact-layout{
+grid-template-columns:1fr;
+gap:45px;
+}
+
+.about-photo{
+max-width:none;
+}
+
+.about-photo img{
+height:570px;
 }
 
 .gallery{
@@ -1270,32 +1244,8 @@ height:500px;
 grid-row:auto;
 }
 
-.gallery-view{
-padding:110px 6vw 80px;
-}
-
-.gallery-grid{
-grid-template-columns:1fr;
-}
-
-.gallery-photo{
-height:500px;
-}
-
-.approach-grid,
-.info-grid{
-grid-template-columns:1fr;
-gap:45px;
-}
-
-.steps{
-grid-template-columns:1fr;
-}
-
-.price-grid{
-grid-template-columns:1fr;
-}
-
+.steps,
+.price-grid,
 .blog-grid{
 grid-template-columns:1fr;
 }
@@ -1312,22 +1262,21 @@ padding:110px 6vw 80px;
 height:420px;
 }
 
-.about-grid{
-grid-template-columns:1fr;
-gap:35px;
-}
-
-.about-photo{
+.story-photo.portrait{
 max-width:none;
 }
 
-.about-photo img{
-height:520px;
+.collection-grid{
+grid-template-columns:1fr;
 }
 
-.contact-layout{
-grid-template-columns:1fr;
-gap:55px;
+.collection-photo:first-child{
+grid-column:auto;
+}
+
+.collection-photo img,
+.collection-photo:first-child img{
+height:330px;
 }
 
 .form-row{
@@ -1335,32 +1284,16 @@ grid-template-columns:1fr;
 gap:0;
 }
 
-.lightbox-arrow{
-font-size:38px;
+.gallery-view{
+padding:110px 6vw 80px;
 }
 
-.lightbox-arrow.left{
-left:3px;
+.gallery-grid{
+grid-template-columns:1fr;
 }
 
-.lightbox-arrow.right{
-right:3px;
-}
-
-.contact-dial{
-width:120px;
-height:120px;
-right:-90px;
-}
-
-.contact-dial:hover,
-.contact-dial:focus{
-right:-15px;
-}
-
-.contact-dial-text{
-left:6px;
-font-size:8px;
+.gallery-photo{
+height:500px;
 }
 
 footer{
@@ -1379,77 +1312,39 @@ gap:15px;
 <header>
 
 <div class="nav-left nav">
-
 <a href="#home" onclick="returnToSite()">Home</a>
 <a href="#about" onclick="returnToSite()">About</a>
 <a href="#approach" onclick="returnToSite()">My Approach</a>
 <a href="#info" onclick="returnToSite()">Info</a>
-
 </div>
 
-<a
-href="#home"
-class="logo"
-onclick="returnToSite()">
-
+<a href="#home" class="logo" onclick="returnToSite()">
 <img src="IMG_1525.jpg" alt="mm_spotting Photography logo">
-
 </a>
 
 <div class="nav-right nav">
-
 <a href="#portfolio" onclick="returnToSite()">Portfolio</a>
-
-<a
-href="#"
-onclick="openGalleryView('automotive'); return false;">
-Gallery
-</a>
-
+<a href="#" onclick="openGalleryView('automotive');return false;">Gallery</a>
 <a href="#prices" onclick="returnToSite()">Prices</a>
 <a href="#blog" onclick="returnToSite()">Blog</a>
 <a href="#contact" onclick="returnToSite()">Contact</a>
-
 </div>
 
-<div class="menu-button" onclick="toggleMenu()">
-Menu
-</div>
+<div class="menu-button" onclick="toggleMenu()">Menu</div>
 
 </header>
 
 <div class="mobile-menu" id="mobileMenu">
-
 <a href="#home" onclick="returnToSite()">Home</a>
 <a href="#about" onclick="returnToSite()">About</a>
 <a href="#approach" onclick="returnToSite()">My Approach</a>
 <a href="#info" onclick="returnToSite()">Info</a>
 <a href="#portfolio" onclick="returnToSite()">Portfolio</a>
-
-<a
-href="#"
-onclick="openGalleryView('automotive'); return false;">
-Gallery
-</a>
-
+<a href="#" onclick="openGalleryView('automotive');return false;">Gallery</a>
 <a href="#prices" onclick="returnToSite()">Prices</a>
 <a href="#blog" onclick="returnToSite()">Blog</a>
 <a href="#contact" onclick="returnToSite()">Contact</a>
-
 </div>
-
-<button
-class="contact-dial"
-id="contactDial"
-type="button"
-aria-label="Go to contact form"
-onclick="goToContact()">
-
-<span class="contact-dial-ring"></span>
-<span class="contact-dial-dot"></span>
-<span class="contact-dial-text">Contact</span>
-
-</button>
 
 <main class="site-main" id="siteMain">
 
@@ -1466,51 +1361,39 @@ onclick="goToContact()">
 
 <div class="hero-content">
 
-<div class="small-title">
-mm_spotting Photography
-</div>
+<div class="small-title">mm_spotting Photography</div>
 
 <h1 id="heroTitle">
-Automotive<br>
-Photography
+Automotive<br>Photography
 </h1>
 
 <p id="heroText">
-Clean, detailed and memorable photography
-for cars, owners, enthusiasts and automotive events.
+Clean, detailed and memorable photography for cars, owners, enthusiasts and automotive events.
 </p>
 
-<div class="hero-category" id="heroCategory">
-Automotive
-</div>
+<div class="hero-category" id="heroCategory">Automotive</div>
 
-<a href="#" class="button" id="heroButton">
-View Gallery
-</a>
+<a href="#" class="button" id="heroButton">View Gallery</a>
 
 </div>
 
 <div class="hero-dots">
-
 <div class="hero-dot active" onclick="goToSlide(0)"></div>
 <div class="hero-dot" onclick="goToSlide(1)"></div>
 <div class="hero-dot" onclick="goToSlide(2)"></div>
 <div class="hero-dot" onclick="goToSlide(3)"></div>
 <div class="hero-dot" onclick="goToSlide(4)"></div>
-
 </div>
 
 </section>
 
 <div class="marquee">
-
 <div class="marquee-inner">
-
 AUTOMOTIVE PHOTOGRAPHY • CARS • DETAILS • ATMOSPHERE • mm_spotting • WEDDINGS • EVENTS • PETS • PHOTOGRAPHY • mm_spotting • AUTOMOTIVE PHOTOGRAPHY • CARS • DETAILS •
-
+</div>
 </div>
 
-</div>
+<!-- ABOUT -->
 
 <section class="intro reveal" id="about">
 
@@ -1518,97 +1401,81 @@ AUTOMOTIVE PHOTOGRAPHY • CARS • DETAILS • ATMOSPHERE • mm_spotting • W
 
 <div>
 
-<div class="section-number">
-01 / About
-</div>
+<div class="section-number">01 / About</div>
 
 <h2>
-Photography with a passion
-for capturing what matters
+Photography with a passion for capturing what matters
 </h2>
 
 <p>
 I’m the photographer behind mm_spotting Photography.
-I enjoy capturing cars, people, pets, events and the
-small details that make every moment different.
-My goal is to create photographs that feel natural,
-memorable and personal.
+I enjoy capturing cars, people, pets, events and the small details that make every moment different.
+My goal is to create photographs that feel natural, memorable and personal.
 </p>
 
 </div>
 
 <div class="about-photo">
-
-<img
-src="about-me.jpg"
-alt="mm_spotting photographer at work">
-
+<img src="about-photographer.jpg" alt="Photographer behind mm_spotting Photography">
 </div>
 
 </div>
 
 </section>
 
+<!-- PORTFOLIO -->
+
 <section class="portfolio" id="portfolio">
 
 <div class="portfolio-header reveal">
 
 <div>
-
-<div class="section-number">
-02 / Portfolio
+<div class="section-number">02 / Portfolio</div>
+<h2>Selected Work</h2>
 </div>
 
-<h2>
-Selected Work
-</h2>
-
-</div>
-
-<p>
-Click any image to open its full gallery category.
-</p>
+<p>Click any image to open its full gallery category.</p>
 
 </div>
 
 <div class="gallery">
 
-<a class="gallery-item reveal" href="#" onclick="openGalleryView('automotive'); return false;">
+<a class="gallery-item reveal" href="#" onclick="openGalleryView('automotive');return false;">
 <img src="banner.jpg">
 <span>Automotive</span>
 </a>
 
-<a class="gallery-item reveal" href="#" onclick="openGalleryView('automotive'); return false;">
+<a class="gallery-item reveal" href="#" onclick="openGalleryView('automotive');return false;">
 <img src="IMG_3499.jpg">
 <span>Automotive</span>
 </a>
 
-<a class="gallery-item reveal" href="#" onclick="openGalleryView('details'); return false;">
+<a class="gallery-item reveal" href="#" onclick="openGalleryView('details');return false;">
 <img src="PICT0015.jpg">
 <span>Details</span>
 </a>
 
-<a class="gallery-item reveal" href="#" onclick="openGalleryView('wedding'); return false;">
+<a class="gallery-item reveal" href="#" onclick="openGalleryView('wedding');return false;">
 <img src="PICT0087.jpg">
 <span>Wedding</span>
 </a>
 
-<a class="gallery-item reveal" href="#" onclick="openGalleryView('interior'); return false;">
+<a class="gallery-item reveal" href="#" onclick="openGalleryView('interior');return false;">
 <img src="IMG_4171.jpg">
 <span>Interior Shots</span>
 </a>
 
-<a class="gallery-item reveal" href="#" onclick="openGalleryView('pets'); return false;">
+<a class="gallery-item reveal" href="#" onclick="openGalleryView('pets');return false;">
 <img src="IMG_4197.jpg">
 <span>Pets</span>
 </a>
 
-<a class="gallery-item reveal" href="#" onclick="openGalleryView('automotive'); return false;">
+<a class="gallery-item reveal" href="#" onclick="openGalleryView('automotive');return false;">
 <img src="IMG_2393.jpg">
 <span>Automotive</span>
 </a>
 
-<a class="gallery-item reveal" href="#" onclick="openGalleryView('details'); return false;">
+<a class="gallery-item reveal" href="#" onclick="openGalleryView('details');return false;">
 <img src="IMG_4144.jpg">
 <span>Details</span>
 </a>
@@ -1617,15 +1484,15 @@ Click any image to open its full gallery category.
 
 </section>
 
+<!-- APPROACH -->
+
 <section class="approach" id="approach">
 
 <div class="approach-grid">
 
 <div class="reveal">
 
-<div class="section-number">
-03 / My Approach
-</div>
+<div class="section-number">03 / My Approach</div>
 
 <h2>
 Simple.<br>
@@ -1638,20 +1505,15 @@ Focused.
 <div class="approach-text reveal">
 
 <p>
-Every shoot starts with understanding
-what you want to capture and the kind
-of feeling you want from the photos.
+Every shoot starts with understanding what you want to capture and the kind of feeling you want from the photos.
 </p>
 
 <p>
-I focus on finding the right location,
-angles, lighting and details to create
-images that feel personal rather than generic.
+I focus on finding the right location, angles, lighting and details to create images that feel personal rather than generic.
 </p>
 
 <p>
-The goal is simple.
-Create photographs that you actually want to keep.
+The goal is simple. Create photographs that you actually want to keep.
 </p>
 
 </div>
@@ -1661,59 +1523,28 @@ Create photographs that you actually want to keep.
 <div class="steps">
 
 <div class="step reveal">
-
-<div class="step-number">
-01
-</div>
-
-<h3>
-Plan
-</h3>
-
-<p>
-We discuss what you want photographed,
-the location and the style you want.
-</p>
-
+<div class="step-number">01</div>
+<h3>Plan</h3>
+<p>We discuss what you want photographed, the location and the style you want.</p>
 </div>
 
 <div class="step reveal">
-
-<div class="step-number">
-02
-</div>
-
-<h3>
-Shoot
-</h3>
-
-<p>
-We take our time finding the best
-angles, moments and details.
-</p>
-
+<div class="step-number">02</div>
+<h3>Shoot</h3>
+<p>We take our time finding the best angles, moments and details.</p>
 </div>
 
 <div class="step reveal">
-
-<div class="step-number">
-03
-</div>
-
-<h3>
-Deliver
-</h3>
-
-<p>
-Your finished edited images
-are delivered digitally.
-</p>
-
+<div class="step-number">03</div>
+<h3>Deliver</h3>
+<p>Your finished edited images are delivered digitally.</p>
 </div>
 
 </div>
 
 </section>
+
+<!-- INFO -->
 
 <section class="info" id="info">
 
@@ -1721,9 +1552,7 @@ are delivered digitally.
 
 <div class="reveal">
 
-<div class="section-number">
-04 / Information
-</div>
+<div class="section-number">04 / Information</div>
 
 <h2>
 Good photos<br>
@@ -1736,24 +1565,18 @@ the camera
 <div class="info-text reveal">
 
 <p>
-I’m currently building my photography portfolio
-and working with car owners, enthusiasts
-and automotive events.
+I’m currently building my photography portfolio and working with car owners, enthusiasts and automotive events.
 </p>
 
 <p>
-I’m happy to discuss shoots in different locations.
-Travel costs may apply depending on distance.
+I’m happy to discuss shoots in different locations. Travel costs may apply depending on distance.
 </p>
 
 <p>
-As the business grows I also hope to expand into
-weddings, private events and other special occasions.
+As the business grows I also hope to expand into weddings, private events and other special occasions.
 </p>
 
-<a href="#contact" class="button">
-Ask a question
-</a>
+<a href="#contact" class="button">Ask a question</a>
 
 </div>
 
@@ -1761,15 +1584,14 @@ Ask a question
 
 </section>
 
+<!-- PRICES -->
+
 <section class="prices" id="prices">
 
-<div class="section-number reveal">
-05 / Prices
-</div>
+<div class="section-number reveal">05 / Prices</div>
 
 <h2 class="reveal">
-Photography<br>
-Prices
+Photography<br>Prices
 </h2>
 
 <div class="price-tabs reveal">
@@ -1797,60 +1619,39 @@ Pets
 <div class="price-grid">
 
 <div class="price">
-
 <h3>Essential</h3>
-
-<div class="price-value">
-€80
-</div>
-
+<div class="price-value">€80</div>
 <ul>
 <li>30 minute shoot</li>
 <li>1 location</li>
 <li>10 edited images</li>
 <li>Digital delivery</li>
 </ul>
-
 <a href="#contact" class="button">Book</a>
-
 </div>
 
 <div class="price">
-
 <h3>Standard</h3>
-
-<div class="price-value">
-€125
-</div>
-
+<div class="price-value">€125</div>
 <ul>
 <li>1 hour shoot</li>
 <li>Up to 2 locations</li>
 <li>20 edited images</li>
 <li>Digital delivery</li>
 </ul>
-
 <a href="#contact" class="button">Book</a>
-
 </div>
 
 <div class="price">
-
 <h3>Premium</h3>
-
-<div class="price-value">
-€175
-</div>
-
+<div class="price-value">€175</div>
 <ul>
 <li>2 hour shoot</li>
 <li>Multiple locations</li>
 <li>30+ edited images</li>
 <li>Digital delivery</li>
 </ul>
-
 <a href="#contact" class="button">Book</a>
-
 </div>
 
 </div>
@@ -1875,9 +1676,7 @@ From €75 / hour
 <li>Longer bookings quoted separately</li>
 </ul>
 
-<a href="#contact" class="button">
-Ask for a quote
-</a>
+<a href="#contact" class="button">Ask for a quote</a>
 
 </div>
 
@@ -1893,9 +1692,7 @@ Ask for a quote
 
 <h3>Weddings</h3>
 
-<div class="price-value">
-Custom Quote
-</div>
+<div class="price-value">Custom Quote</div>
 
 <ul>
 <li>Packages depend on coverage time</li>
@@ -1904,9 +1701,7 @@ Custom Quote
 <li>Contact me to discuss your wedding</li>
 </ul>
 
-<a href="#contact" class="button">
-Ask for a quote
-</a>
+<a href="#contact" class="button">Ask for a quote</a>
 
 </div>
 
@@ -1919,60 +1714,39 @@ Ask for a quote
 <div class="price-grid">
 
 <div class="price">
-
 <h3>Mini</h3>
-
-<div class="price-value">
-€50
-</div>
-
+<div class="price-value">€50</div>
 <ul>
 <li>30 minute shoot</li>
 <li>1 location</li>
 <li>8 edited images</li>
 <li>Digital delivery</li>
 </ul>
-
 <a href="#contact" class="button">Book</a>
-
 </div>
 
 <div class="price">
-
 <h3>Standard</h3>
-
-<div class="price-value">
-€85
-</div>
-
+<div class="price-value">€85</div>
 <ul>
 <li>1 hour shoot</li>
 <li>1 location</li>
 <li>15 edited images</li>
 <li>Digital delivery</li>
 </ul>
-
 <a href="#contact" class="button">Book</a>
-
 </div>
 
 <div class="price">
-
 <h3>Premium</h3>
-
-<div class="price-value">
-€140
-</div>
-
+<div class="price-value">€140</div>
 <ul>
 <li>Up to 90 minutes</li>
 <li>Up to 2 locations</li>
 <li>25 edited images</li>
 <li>Digital delivery</li>
 </ul>
-
 <a href="#contact" class="button">Book</a>
-
 </div>
 
 </div>
@@ -1981,81 +1755,56 @@ Ask for a quote
 
 </section>
 
+<!-- BLOG -->
+
 <section class="blog" id="blog">
 
-<div class="section-number reveal">
-06 / Blog
-</div>
+<div class="section-number reveal">06 / Blog</div>
 
 <h2 class="reveal">
-From behind<br>
-the camera
+From behind<br>the camera
 </h2>
 
 <div class="blog-grid">
 
 <article class="post reveal" onclick="openBlog('cars')">
 
-<img
-class="blog-preview-image"
-src="IMG_3509.jpg"
-alt="Automotive photography">
+<img class="blog-preview-image" src="IMG_3509.jpg" alt="Automotive photography">
 
-<div class="post-number">
-01 / Automotive
-</div>
+<div class="post-number">01 / Automotive</div>
 
-<h3>
-How I photograph cars
-</h3>
+<h3>How I photograph cars</h3>
 
 <p>
-A look at how I approach automotive photography
-from the location to the final edit.
+A look at how I approach automotive photography from the location to the final edit.
 </p>
 
 </article>
 
 <article class="post reveal" onclick="openBlog('wedding')">
 
-<img
-class="blog-preview-image"
-src="PICT0087.jpg"
-alt="Wedding photography">
+<img class="blog-preview-image" src="PICT0087.jpg" alt="Wedding photography">
 
-<div class="post-number">
-02 / Wedding
-</div>
+<div class="post-number">02 / Wedding</div>
 
-<h3>
-My first wedding shoot
-</h3>
+<h3>My first wedding shoot</h3>
 
 <p>
-Recreating a wedding moment five years later
-and trying a completely different kind of photography.
+Recreating a wedding moment five years later and trying a completely different kind of photography.
 </p>
 
 </article>
 
 <article class="post reveal" onclick="openBlog('story')">
 
-<img
-class="blog-preview-image"
-src="my-story.jpg"
-alt="The story behind mm_spotting">
+<img class="blog-preview-image" src="my-story-photographer.jpg" alt="The photographer behind mm_spotting">
 
-<div class="post-number">
-03 / My Story
-</div>
+<div class="post-number">03 / My Story</div>
 
-<h3>
-The story behind mm_spotting
-</h3>
+<h3>The story behind mm_spotting</h3>
 
 <p>
-From a little compact camera at ten years old
-to creating mm_spotting Photography.
+From photographing cars for fun to building mm_spotting Photography.
 </p>
 
 </article>
@@ -2064,15 +1813,14 @@ to creating mm_spotting Photography.
 
 </section>
 
+<!-- CONTACT -->
+
 <section class="contact" id="contact">
 
-<div class="section-number reveal">
-07 / Contact
-</div>
+<div class="section-number reveal">07 / Contact</div>
 
 <h2 class="reveal">
-Let's create<br>
-something.
+Let's create<br>something.
 </h2>
 
 <p class="contact-intro reveal">
@@ -2089,62 +1837,34 @@ Choose what you're contacting me about and tell me what you have in mind.
 I'll get back to you through the email address you provide.
 </p>
 
-<a
-class="contact-email"
-href="mailto:contact@mmspotting.com">
+<a class="contact-email" href="mailto:contact@mmspotting.com">
 contact@mmspotting.com
 </a>
 
 <div class="social-links">
 
-<a
-class="social-link"
-href="https://www.instagram.com/mm_spotting_/"
-target="_blank"
-rel="noopener"
-aria-label="Instagram">
-
+<a class="social-link" href="https://www.instagram.com/mm_spotting_/" target="_blank" rel="noopener" aria-label="Instagram">
 <svg viewBox="0 0 24 24">
 <path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2c1.66 0 3 1.34 3 3v10c0 1.66-1.34 3-3 3H7c-1.66 0-3-1.34-3-3V7c0-1.66 1.34-3 3-3h10zm-5 3a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm5.5-3.5a1.25 1.25 0 100 2.5 1.25 1.25 0 000-2.5z"/>
 </svg>
-
 </a>
 
-<a
-class="social-link"
-href="https://www.facebook.com/share/1BeX7UJu3q/?mibextid=wwXIfr"
-target="_blank"
-rel="noopener"
-aria-label="Facebook">
-
+<a class="social-link" href="https://www.facebook.com/share/1BeX7UJu3q/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook">
 <svg viewBox="0 0 24 24">
 <path d="M13.5 22v-9h3l.5-3h-3.5V8.1c0-.9.3-1.6 1.7-1.6H17V3.8c-.4-.1-1.4-.2-2.5-.2-2.5 0-4.2 1.5-4.2 4.3V10H7.5v3h2.8v9h3.2z"/>
 </svg>
-
 </a>
 
-<a
-class="social-link"
-href="https://www.tiktok.com/@mm_spotting"
-target="_blank"
-rel="noopener"
-aria-label="TikTok">
-
+<a class="social-link" href="https://www.tiktok.com/@mm_spotting" target="_blank" rel="noopener" aria-label="TikTok">
 <svg viewBox="0 0 24 24">
 <path d="M15.6 2c.3 2.2 1.6 3.6 3.8 3.8v3.1c-1.3 0-2.5-.3-3.8-1v6.2c0 5.4-5.9 7.1-8.6 4.6-1.8-1.7-2.2-4.6-.9-6.7 1.5-2.4 4.4-2.8 6.4-1.9v3.2c-.6-.2-1.1-.4-1.8-.3-1.6.2-2.5 1.8-1.8 3.1.7 1.4 2.8 1.6 3.7.3.3-.4.4-1 .4-1.5V2h2.6z"/>
 </svg>
-
 </a>
 
-<a
-class="social-link"
-href="mailto:contact@mmspotting.com"
-aria-label="Email">
-
+<a class="social-link" href="mailto:contact@mmspotting.com" aria-label="Email">
 <svg viewBox="0 0 24 24">
 <path d="M20 4H4C2.9 4 2 4.9 2 6v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>
 </svg>
-
 </a>
 
 </div>
@@ -2153,93 +1873,38 @@ aria-label="Email">
 
 <div class="contact-form reveal">
 
-<div
-class="form-message form-success"
-data-fs-success>
-</div>
+<div class="form-message form-success" data-fs-success></div>
+<div class="form-message form-error" data-fs-error></div>
 
-<div
-class="form-message form-error"
-data-fs-error>
-</div>
-
-<form
-id="contactForm"
-action="https://formspree.io/f/xoeadvoe"
-method="POST">
+<form id="contactForm" action="https://formspree.io/f/xoeadvoe" method="POST">
 
 <div class="form-row">
 
 <div class="form-field">
-
-<label for="name">
-Name
-</label>
-
-<input
-type="text"
-id="name"
-name="name"
-placeholder="Your name"
-required>
-
+<label for="name">Name</label>
+<input type="text" id="name" name="name" placeholder="Your name" required>
 </div>
 
 <div class="form-field">
-
-<label for="email">
-Email
-</label>
-
-<input
-type="email"
-id="email"
-name="email"
-placeholder="Your email"
-required>
-
+<label for="email">Email</label>
+<input type="email" id="email" name="email" placeholder="Your email" required>
 </div>
 
 </div>
 
 <div class="form-field">
 
-<label for="subject">
-What is this about?
-</label>
+<label for="subject">What is this about?</label>
 
-<select
-id="subject"
-name="subject"
-required>
+<select id="subject" name="subject" required>
 
-<option value="" disabled selected>
-Choose one
-</option>
-
-<option value="Automotive">
-Automotive
-</option>
-
-<option value="Wedding">
-Wedding
-</option>
-
-<option value="Pets">
-Pets
-</option>
-
-<option value="Event">
-Event
-</option>
-
-<option value="Question">
-Question
-</option>
-
-<option value="Other">
-Other
-</option>
+<option value="" disabled selected>Choose one</option>
+<option value="Automotive">Automotive</option>
+<option value="Wedding">Wedding</option>
+<option value="Pets">Pets</option>
+<option value="Event">Event</option>
+<option value="Question">Question</option>
+<option value="Other">Other</option>
 
 </select>
 
@@ -2247,24 +1912,14 @@ Other
 
 <div class="form-field">
 
-<label for="message">
-Message
-</label>
+<label for="message">Message</label>
 
-<textarea
-id="message"
-name="message"
-placeholder="Tell me what you have in mind..."
-required></textarea>
+<textarea id="message" name="message" placeholder="Tell me what you have in mind..." required></textarea>
 
 </div>
 
-<button
-type="submit"
-class="button contact-submit">
-
+<button type="submit" class="button contact-submit">
 Send message
-
 </button>
 
 </form>
@@ -2277,38 +1932,28 @@ Send message
 
 <footer>
 
-<span>
-© 2026 mm_spotting Photography
-</span>
-
-<span>
-Photography
-</span>
+<span>© 2026 mm_spotting Photography</span>
+<span>Photography</span>
 
 </footer>
 
 </main>
 
+<!-- BLOG VIEW -->
+
 <section class="blog-view" id="blogView">
 
-<div class="blog-back" onclick="closeBlog()">
-← Back to blog
-</div>
+<div class="blog-back" onclick="closeBlog()">← Back to blog</div>
+
+<!-- AUTOMOTIVE ARTICLE -->
 
 <article class="blog-article" id="blog-cars">
 
-<img
-class="blog-featured-image"
-src="IMG_3509.jpg"
-alt="Automotive photography">
+<img class="blog-featured-image" src="IMG_3509.jpg" alt="Automotive photography">
 
-<div class="blog-date">
-Automotive Photography
-</div>
+<div class="blog-date">Automotive Photography</div>
 
-<h1>
-How I photograph cars
-</h1>
+<h1>How I photograph cars</h1>
 
 <div class="blog-story">
 
@@ -2324,18 +1969,14 @@ I try different angles and perspectives instead of taking the same standard shot
 </p>
 
 <p>
-During the shoot I usually start with full shots of the car
-and then move closer to things like badges, wheels, lights,
-interiors and other details that catch my attention.
-I also like experimenting with reflections and backgrounds
-to make the photos more interesting.
+During the shoot I usually start with full shots of the car and then move closer to things like badges,
+wheels, lights, interiors and other details that catch my attention.
+I also like experimenting with reflections and backgrounds to make the photos more interesting.
 </p>
 
 <p>
-Afterwards I go through the photos and choose the ones I like most
-before editing them.
-I try to keep the car looking natural while improving the lighting,
-colours and overall atmosphere.
+Afterwards I go through the photos and choose the ones I like most before editing them.
+I try to keep the car looking natural while improving the lighting, colours and overall atmosphere.
 </p>
 
 <p>
@@ -2343,150 +1984,174 @@ Im still learning and developing my own style with every shoot
 and thats one of the things I enjoy most about photography.
 </p>
 
-<p class="blog-signature">
-mm_spotting Photography
-</p>
+<p class="blog-signature">mm_spotting Photography</p>
 
 </div>
 
 </article>
 
+<!-- WEDDING ARTICLE -->
+
 <article class="blog-article" id="blog-wedding">
 
-<img
-class="blog-featured-image"
-src="PICT0087.jpg"
-alt="Wedding photography">
+<img class="blog-featured-image" src="PICT0087.jpg" alt="Wedding photography">
 
-<div class="blog-date">
-11 July 2026
-</div>
+<div class="blog-date">11 July 2026</div>
 
-<h1>
-My first wedding shoot
-</h1>
+<h1>My first wedding shoot</h1>
 
 <div class="blog-story">
 
 <p>
 On 11 July 2026 I photographed my first wedding style shoot.
-It was for my mum and stepdad who were celebrating
-their five year wedding anniversary.
+It was for my mum and stepdad who were celebrating their five year wedding anniversary.
 </p>
 
 <p>
-For the shoot they put their wedding clothes back on
-and we went to an old castle ruin to recreate the feeling
-and memories of their original wedding day.
+For the shoot they put their wedding clothes back on and we went to an old castle ruin
+to recreate the feeling and memories of their original wedding day.
 </p>
 
 <p>
-Most of my photography before this had been focused on cars
-so this was something completely different for me.
-I had to think more about posing people, capturing natural moments
-and using the surroundings to make the photos feel special.
+Most of my photography before this had been focused on cars so this was something completely different for me.
+I had to think more about posing people, capturing natural moments and using the surroundings to make the photos feel special.
 </p>
 
 <p>
-The castle ruins gave us an amazing setting
-and I also focused on smaller details like the flowers,
+The castle ruins gave us an amazing setting and I also focused on smaller details like the flowers,
 clothing and little moments between them.
 </p>
 
 <p>
-It was my first experience taking this kind of photography seriously
-and I learned a lot from it.
-More importantly it showed me that I really enjoy photographing weddings
-and people and its something I would love to do more of in the future.
+It was my first experience taking this kind of photography seriously and I learned a lot from it.
+More importantly it showed me that I really enjoy photographing weddings and people
+and its something I would love to do more of in the future.
 </p>
 
-<p class="blog-signature">
-mm_spotting Photography
-</p>
+<p class="blog-signature">mm_spotting Photography</p>
 
 </div>
 
 </article>
 
+<!-- MY STORY ARTICLE -->
+
 <article class="blog-article" id="blog-story">
 
-<img
-class="blog-featured-image"
-src="my-story.jpg"
-alt="The photographer behind mm_spotting">
+<img class="blog-featured-image" src="my-story-photographer.jpg" alt="The photographer behind mm_spotting Photography">
 
-<div class="blog-date">
-My Story
-</div>
+<div class="blog-date">My Story</div>
 
-<h1>
-The story behind mm_spotting
-</h1>
+<h1>The story behind mm_spotting</h1>
 
 <div class="blog-story">
 
 <p>
 My interest in photography started when I was around 10 years old.
-I got a small compact camera and pretty much immediately started
-taking it everywhere with me.
-At the time I wasn't thinking about becoming a photographer
-or starting anything serious.
+I got a small compact camera and pretty much immediately started taking it everywhere with me.
+At the time I wasn't thinking about becoming a photographer or starting anything serious.
 I just enjoyed taking pictures of whatever caught my attention.
 </p>
 
-<p>
-Cars were already a massive part of my life long before photography became one.
-You could probably tell that pretty quickly from my huge collection
-of miniature cars, which is still growing today.
-I have always been interested in different cars,
-their designs, the details and everything surrounding car culture.
-</p>
+<div class="story-photo portrait">
+
+<img src="my-story-camera.jpg" alt="Using a camera">
+
+<div class="story-caption">
+Behind the camera
+</div>
+
+</div>
 
 <p>
-Because I loved cars so much,
-my parents started taking me to different car events.
-Naturally, the camera came with me.
-I started photographing the cars I saw and slowly began combining
-two things I already loved, cars and photography.
+Cars were already a massive part of my life long before photography became one.
+You could probably tell that pretty quickly from my huge collection of miniature cars,
+which is still growing today.
+I have always been interested in different cars, their designs,
+the details and everything surrounding car culture.
 </p>
+
+<div class="collection-section">
+
+<div class="collection-grid">
+
+<div class="collection-photo">
+<img src="collection-1.jpg" alt="Part of my miniature car collection">
+</div>
+
+<div class="collection-photo">
+<img src="collection-2.jpg" alt="Miniature car collection display">
+</div>
+
+<div class="collection-photo">
+<img src="collection-3.jpg" alt="Miniature car diorama and collection">
+</div>
+
+</div>
+
+<div class="collection-caption">
+A small part of the collection
+</div>
+
+</div>
+
+<p>
+Because I loved cars so much, my parents started taking me to different car events.
+Naturally, the camera came with me.
+I started photographing the cars I saw and slowly began combining two things I already loved,
+cars and photography.
+</p>
+
+<div class="story-photo">
+
+<img src="my-story-goodwood.jpg" alt="Photographing a car at an automotive event">
+
+<div class="story-caption">
+Photography at automotive events
+</div>
+
+</div>
 
 <p>
 As I got older I started going to more events myself.
 Photography gave me a reason to explore different events,
-see cars I had never seen before
-and experiment with different ways of capturing them.
+see cars I had never seen before and experiment with different ways of capturing them.
 </p>
 
 <p>
-One of the biggest parts of that journey has been the people
-I've met along the way.
+One of the biggest parts of that journey has been the people I've met along the way.
 Going to events and photographing cars introduced me to other photographers,
 car owners and people who shared the same interests.
 Those experiences helped turn something I originally just did for fun
 into something I wanted to take more seriously.
 </p>
 
+<div class="story-photo">
+
+<img src="my-story-photographer.jpg" alt="Photographer with Canon camera">
+
+<div class="story-caption">
+Always learning
+</div>
+
+</div>
+
 <p>
-Over time my cameras changed,
-my photography improved and I started developing my own style.
-I began paying more attention to things like lighting,
-angles, reflections, locations and the smaller details
-that can completely change a photograph.
+Over time my cameras changed, my photography improved and I started developing my own style.
+I began paying more attention to things like lighting, angles, reflections,
+locations and the smaller details that can completely change a photograph.
 </p>
 
 <p>
-Eventually all of that grew into
-<strong>mm_spotting Photography</strong>.
+Eventually all of that grew into <strong>mm_spotting Photography</strong>.
 </p>
 
 <p>
-Cars are still a huge part of what I photograph
-and where everything started,
+Cars are still a huge part of what I photograph and where everything started,
 but I don't want my photography to stop there.
 I've started experimenting with other types of photography too,
 including weddings, pets, events, interiors
-and anything else that gives me an interesting story
-or moment to capture.
+and anything else that gives me an interesting story or moment to capture.
 </p>
 
 <p>
@@ -2496,9 +2161,7 @@ There is always another event, another car,
 another person or another moment waiting to be photographed.
 </p>
 
-<p class="blog-signature">
-mm_spotting Photography
-</p>
+<p class="blog-signature">mm_spotting Photography</p>
 
 </div>
 
@@ -2506,107 +2169,46 @@ mm_spotting Photography
 
 </section>
 
+<!-- FULL GALLERY -->
+
 <section class="gallery-view" id="galleryView">
 
-<div class="gallery-back" onclick="closeGalleryView(true)">
-← Back to site
-</div>
+<div class="gallery-back" onclick="closeGalleryView(true)">← Back to site</div>
 
-<div class="section-number">
-Gallery
-</div>
+<div class="section-number">Gallery</div>
 
-<h2>
-Full Gallery
-</h2>
+<h2>Full Gallery</h2>
 
 <div class="gallery-categories">
 
-<button class="category-button active" data-category="automotive" onclick="showGalleryCategory('automotive')">
-Automotive
-</button>
-
-<button class="category-button" data-category="wedding" onclick="showGalleryCategory('wedding')">
-Wedding
-</button>
-
-<button class="category-button" data-category="interior" onclick="showGalleryCategory('interior')">
-Interior Shots
-</button>
-
-<button class="category-button" data-category="pets" onclick="showGalleryCategory('pets')">
-Pets
-</button>
-
-<button class="category-button" data-category="details" onclick="showGalleryCategory('details')">
-Details
-</button>
+<button class="category-button active" data-category="automotive" onclick="showGalleryCategory('automotive')">Automotive</button>
+<button class="category-button" data-category="wedding" onclick="showGalleryCategory('wedding')">Wedding</button>
+<button class="category-button" data-category="interior" onclick="showGalleryCategory('interior')">Interior Shots</button>
+<button class="category-button" data-category="pets" onclick="showGalleryCategory('pets')">Pets</button>
+<button class="category-button" data-category="details" onclick="showGalleryCategory('details')">Details</button>
 
 </div>
 
 <div class="gallery-category active" id="gallery-automotive">
 
-<h3>
-Automotive
-</h3>
+<h3>Automotive</h3>
 
 <div class="gallery-grid">
 
-<div class="gallery-photo" onclick="openLightbox('automotive',0)">
-<img src="banner.jpg">
-</div>
-
-<div class="gallery-photo" onclick="openLightbox('automotive',1)">
-<img src="IMG_2099.jpg">
-</div>
-
-<div class="gallery-photo" onclick="openLightbox('automotive',2)">
-<img src="IMG_2115.jpg">
-</div>
-
-<div class="gallery-photo" onclick="openLightbox('automotive',3)">
-<img src="IMG_2909.jpg">
-</div>
-
-<div class="gallery-photo" onclick="openLightbox('automotive',4)">
-<img src="IMG_2788.jpg">
-</div>
-
-<div class="gallery-photo" onclick="openLightbox('automotive',5)">
-<img src="IMG_2854.jpg">
-</div>
-
-<div class="gallery-photo" onclick="openLightbox('automotive',6)">
-<img src="IMG_3499.jpg">
-</div>
-
-<div class="gallery-photo" onclick="openLightbox('automotive',7)">
-<img src="IMG_3533.jpg">
-</div>
-
-<div class="gallery-photo" onclick="openLightbox('automotive',8)">
-<img src="IMG_3509.jpg">
-</div>
-
-<div class="gallery-photo" onclick="openLightbox('automotive',9)">
-<img src="IMG_3200.jpg">
-</div>
-
-<div class="gallery-photo" onclick="openLightbox('automotive',10)">
-<img src="IMG_2825.jpg">
-</div>
-
-<div class="gallery-photo" onclick="openLightbox('automotive',11)">
-<img src="IMG_2823.jpg">
-</div>
-
-<div class="gallery-photo" onclick="openLightbox('automotive',12)">
-<img src="IMG_2101.jpg">
-</div>
-
-<div class="gallery-photo" onclick="openLightbox('automotive',13)">
-<img src="IMG_2393.jpg">
-</div>
+<div class="gallery-photo" onclick="openLightbox('automotive',0)"><img src="banner.jpg"></div>
+<div class="gallery-photo" onclick="openLightbox('automotive',1)"><img src="IMG_2099.jpg"></div>
+<div class="gallery-photo" onclick="openLightbox('automotive',2)"><img src="IMG_2115.jpg"></div>
+<div class="gallery-photo" onclick="openLightbox('automotive',3)"><img src="IMG_2909.jpg"></div>
+<div class="gallery-photo" onclick="openLightbox('automotive',4)"><img src="IMG_2788.jpg"></div>
+<div class="gallery-photo" onclick="openLightbox('automotive',5)"><img src="IMG_2854.jpg"></div>
+<div class="gallery-photo" onclick="openLightbox('automotive',6)"><img src="IMG_3499.jpg"></div>
+<div class="gallery-photo" onclick="openLightbox('automotive',7)"><img src="IMG_3533.jpg"></div>
+<div class="gallery-photo" onclick="openLightbox('automotive',8)"><img src="IMG_3509.jpg"></div>
+<div class="gallery-photo" onclick="openLightbox('automotive',9)"><img src="IMG_3200.jpg"></div>
+<div class="gallery-photo" onclick="openLightbox('automotive',10)"><img src="IMG_2825.jpg"></div>
+<div class="gallery-photo" onclick="openLightbox('automotive',11)"><img src="IMG_2823.jpg"></div>
+<div class="gallery-photo" onclick="openLightbox('automotive',12)"><img src="IMG_2101.jpg"></div>
+<div class="gallery-photo" onclick="openLightbox('automotive',13)"><img src="IMG_2393.jpg"></div>
 
 </div>
 
@@ -2614,124 +2216,66 @@ Automotive
 
 <div class="gallery-category" id="gallery-wedding">
 
-<h3>
-Wedding
-</h3>
+<h3>Wedding</h3>
 
 <div class="gallery-grid">
-
-<div class="gallery-photo" onclick="openLightbox('wedding',0)">
-<img src="PICT0087.jpg">
-</div>
-
-<div class="gallery-photo" onclick="openLightbox('wedding',1)">
-<img src="PICT0129.jpg">
-</div>
-
+<div class="gallery-photo" onclick="openLightbox('wedding',0)"><img src="PICT0087.jpg"></div>
+<div class="gallery-photo" onclick="openLightbox('wedding',1)"><img src="PICT0129.jpg"></div>
 </div>
 
 </div>
 
 <div class="gallery-category" id="gallery-interior">
 
-<h3>
-Interior Shots
-</h3>
+<h3>Interior Shots</h3>
 
 <div class="gallery-grid">
-
-<div class="gallery-photo" onclick="openLightbox('interior',0)">
-<img src="IMG_4138.jpg">
-</div>
-
-<div class="gallery-photo" onclick="openLightbox('interior',1)">
-<img src="IMG_4171.jpg">
-</div>
-
-<div class="gallery-photo" onclick="openLightbox('interior',2)">
-<img src="IMG_4212.jpg">
-</div>
-
-<div class="gallery-photo" onclick="openLightbox('interior',3)">
-<img src="IMG_4154.jpg">
-</div>
-
+<div class="gallery-photo" onclick="openLightbox('interior',0)"><img src="IMG_4138.jpg"></div>
+<div class="gallery-photo" onclick="openLightbox('interior',1)"><img src="IMG_4171.jpg"></div>
+<div class="gallery-photo" onclick="openLightbox('interior',2)"><img src="IMG_4212.jpg"></div>
+<div class="gallery-photo" onclick="openLightbox('interior',3)"><img src="IMG_4154.jpg"></div>
 </div>
 
 </div>
 
 <div class="gallery-category" id="gallery-pets">
 
-<h3>
-Pets
-</h3>
+<h3>Pets</h3>
 
 <div class="gallery-grid">
-
-<div class="gallery-photo" onclick="openLightbox('pets',0)">
-<img src="IMG_4197.jpg">
-</div>
-
+<div class="gallery-photo" onclick="openLightbox('pets',0)"><img src="IMG_4197.jpg"></div>
 </div>
 
 </div>
 
 <div class="gallery-category" id="gallery-details">
 
-<h3>
-Details
-</h3>
+<h3>Details</h3>
 
 <div class="gallery-grid">
-
-<div class="gallery-photo" onclick="openLightbox('details',0)">
-<img src="IMG_4269.jpg">
-</div>
-
-<div class="gallery-photo" onclick="openLightbox('details',1)">
-<img src="PICT0015.jpg">
-</div>
-
-<div class="gallery-photo" onclick="openLightbox('details',2)">
-<img src="IMG_2803.jpg">
-</div>
-
-<div class="gallery-photo" onclick="openLightbox('details',3)">
-<img src="IMG_4144.jpg">
-</div>
-
-<div class="gallery-photo" onclick="openLightbox('details',4)">
-<img src="IMG_4146.jpg">
-</div>
-
-<div class="gallery-photo" onclick="openLightbox('details',5)">
-<img src="IMG_4120.jpg">
-</div>
-
+<div class="gallery-photo" onclick="openLightbox('details',0)"><img src="IMG_4269.jpg"></div>
+<div class="gallery-photo" onclick="openLightbox('details',1)"><img src="PICT0015.jpg"></div>
+<div class="gallery-photo" onclick="openLightbox('details',2)"><img src="IMG_2803.jpg"></div>
+<div class="gallery-photo" onclick="openLightbox('details',3)"><img src="IMG_4144.jpg"></div>
+<div class="gallery-photo" onclick="openLightbox('details',4)"><img src="IMG_4146.jpg"></div>
+<div class="gallery-photo" onclick="openLightbox('details',5)"><img src="IMG_4120.jpg"></div>
 </div>
 
 </div>
 
 </section>
 
+<!-- LIGHTBOX -->
+
 <div class="lightbox" id="lightbox">
 
-<div class="lightbox-close" onclick="closeLightbox()">
-×
-</div>
+<div class="lightbox-close" onclick="closeLightbox()">×</div>
 
-<button
-class="lightbox-arrow left"
-onclick="changeLightboxImage(-1)">
-‹
-</button>
+<button class="lightbox-arrow left" onclick="changeLightboxImage(-1)">‹</button>
 
 <div class="lightbox-image-wrap">
 
-<img
-id="lightboxImage"
-src=""
-alt="Photography">
+<img id="lightboxImage" src="" alt="Photography">
 
 <span class="lightbox-watermark">
 © mm_spotting Photography
@@ -2739,16 +2283,9 @@ alt="Photography">
 
 </div>
 
-<button
-class="lightbox-arrow right"
-onclick="changeLightboxImage(1)">
-›
-</button>
+<button class="lightbox-arrow right" onclick="changeLightboxImage(1)">›</button>
 
-<div
-class="lightbox-counter"
-id="lightboxCounter">
-</div>
+<div class="lightbox-counter" id="lightboxCounter"></div>
 
 </div>
 
@@ -2757,58 +2294,31 @@ id="lightboxCounter">
 /* MENU */
 
 function toggleMenu(){
-
-document
-.getElementById("mobileMenu")
-.classList.toggle("open");
-
+document.getElementById("mobileMenu").classList.toggle("open");
 }
 
 /* REVEALS */
 
-const reveals =
-document.querySelectorAll(".reveal");
+const reveals=document.querySelectorAll(".reveal");
 
-const observer =
-new IntersectionObserver(entries => {
-
-entries.forEach(entry => {
-
+const observer=new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
 if(entry.isIntersecting){
-
 entry.target.classList.add("visible");
-
 }
-
 });
+},{threshold:.12});
 
-},{
-threshold:.12
-});
-
-reveals.forEach(el =>
-observer.observe(el)
-);
+reveals.forEach(el=>observer.observe(el));
 
 /* RETURN TO SITE */
 
 function returnToSite(){
 
-document
-.getElementById("siteMain")
-.classList.remove("hidden");
-
-document
-.getElementById("galleryView")
-.classList.remove("active");
-
-document
-.getElementById("blogView")
-.classList.remove("active");
-
-document
-.getElementById("mobileMenu")
-.classList.remove("open");
+document.getElementById("siteMain").classList.remove("hidden");
+document.getElementById("galleryView").classList.remove("active");
+document.getElementById("blogView").classList.remove("active");
+document.getElementById("mobileMenu").classList.remove("open");
 
 }
 
@@ -2816,62 +2326,31 @@ document
 
 function openBlog(blog){
 
-document
-.getElementById("siteMain")
-.classList.add("hidden");
+document.getElementById("siteMain").classList.add("hidden");
+document.getElementById("galleryView").classList.remove("active");
+document.getElementById("blogView").classList.add("active");
 
-document
-.getElementById("galleryView")
-.classList.remove("active");
-
-document
-.getElementById("blogView")
-.classList.add("active");
-
-document
-.querySelectorAll(".blog-article")
-.forEach(function(article){
-
+document.querySelectorAll(".blog-article").forEach(article=>{
 article.classList.remove("active");
-
 });
 
-const article =
-document.getElementById(
-"blog-" + blog
-);
+const article=document.getElementById("blog-"+blog);
 
 if(article){
-
 article.classList.add("active");
-
 }
 
-window.scrollTo({
-top:0,
-behavior:"auto"
-});
+window.scrollTo({top:0,behavior:"auto"});
 
 }
 
 function closeBlog(){
 
-document
-.getElementById("blogView")
-.classList.remove("active");
+document.getElementById("blogView").classList.remove("active");
+document.getElementById("siteMain").classList.remove("hidden");
 
-document
-.getElementById("siteMain")
-.classList.remove("hidden");
-
-setTimeout(function(){
-
-document
-.getElementById("blog")
-.scrollIntoView({
-behavior:"smooth"
-});
-
+setTimeout(()=>{
+document.getElementById("blog").scrollIntoView({behavior:"smooth"});
 },10);
 
 }
@@ -2880,96 +2359,48 @@ behavior:"smooth"
 
 function openGalleryView(category){
 
-document
-.getElementById("siteMain")
-.classList.add("hidden");
+document.getElementById("siteMain").classList.add("hidden");
+document.getElementById("blogView").classList.remove("active");
+document.getElementById("galleryView").classList.add("active");
 
-document
-.getElementById("blogView")
-.classList.remove("active");
+showGalleryCategory(category||"automotive");
 
-document
-.getElementById("galleryView")
-.classList.add("active");
-
-showGalleryCategory(
-category || "automotive"
-);
-
-window.scrollTo({
-top:0,
-behavior:"auto"
-});
+window.scrollTo({top:0,behavior:"auto"});
 
 }
 
 function closeGalleryView(scrollTop){
 
-document
-.getElementById("galleryView")
-.classList.remove("active");
-
-document
-.getElementById("siteMain")
-.classList.remove("hidden");
+document.getElementById("galleryView").classList.remove("active");
+document.getElementById("siteMain").classList.remove("hidden");
 
 if(scrollTop){
-
-window.scrollTo({
-top:0,
-behavior:"auto"
-});
-
+window.scrollTo({top:0,behavior:"auto"});
 }
 
 }
 
 function showGalleryCategory(category){
 
-document
-.querySelectorAll(".gallery-category")
-.forEach(function(item){
-
+document.querySelectorAll(".gallery-category").forEach(item=>{
 item.classList.remove("active");
-
 });
 
-document
-.querySelectorAll(".category-button")
-.forEach(function(button){
-
+document.querySelectorAll(".category-button").forEach(button=>{
 button.classList.remove("active");
-
 });
 
-const section =
-document.getElementById(
-"gallery-" + category
-);
+const section=document.getElementById("gallery-"+category);
 
 if(section){
-
 section.classList.add("active");
-
 }
 
-const button =
-document.querySelector(
-'.category-button[data-category="' +
-category +
-'"]'
-);
+const button=document.querySelector('.category-button[data-category="'+category+'"]');
 
 if(button){
-
 button.classList.add("active");
-
 }
-
-window.scrollTo({
-top:0,
-behavior:"auto"
-});
 
 }
 
@@ -2977,51 +2408,27 @@ behavior:"auto"
 
 function showPriceGroup(group){
 
-document
-.querySelectorAll(".price-group")
-.forEach(function(item){
-
+document.querySelectorAll(".price-group").forEach(item=>{
 item.classList.remove("active");
-
 });
 
-document
-.querySelectorAll(".price-tab")
-.forEach(function(button){
-
+document.querySelectorAll(".price-tab").forEach(button=>{
 button.classList.remove("active");
-
 });
 
-const priceGroup =
-document.getElementById(
-"price-" + group
-);
+document.getElementById("price-"+group).classList.add("active");
 
-if(priceGroup){
+const button=document.querySelector('.price-tab[data-price="'+group+'"]');
 
-priceGroup.classList.add("active");
-
-}
-
-const priceButton =
-document.querySelector(
-'.price-tab[data-price="' +
-group +
-'"]'
-);
-
-if(priceButton){
-
-priceButton.classList.add("active");
-
+if(button){
+button.classList.add("active");
 }
 
 }
 
-/* GALLERY IMAGES */
+/* LIGHTBOX */
 
-const galleryImages = {
+const galleryImages={
 
 automotive:[
 "banner.jpg",
@@ -3067,190 +2474,80 @@ details:[
 
 };
 
-let lightboxCategory =
-"automotive";
-
-let lightboxIndex =
-0;
+let lightboxCategory="automotive";
+let lightboxIndex=0;
 
 function openLightbox(category,index){
 
-lightboxCategory =
-category;
-
-lightboxIndex =
-index;
+lightboxCategory=category;
+lightboxIndex=index;
 
 updateLightbox();
 
-document
-.getElementById("lightbox")
-.classList.add("open");
-
-document.body.style.overflow =
-"hidden";
+document.getElementById("lightbox").classList.add("open");
+document.body.style.overflow="hidden";
 
 }
 
 function updateLightbox(){
 
-const images =
-galleryImages[lightboxCategory];
+const images=galleryImages[lightboxCategory];
 
-if(lightboxIndex < 0){
-
-lightboxIndex =
-images.length - 1;
-
+if(lightboxIndex<0){
+lightboxIndex=images.length-1;
 }
 
-if(lightboxIndex >= images.length){
-
-lightboxIndex = 0;
-
+if(lightboxIndex>=images.length){
+lightboxIndex=0;
 }
 
-document
-.getElementById("lightboxImage")
-.src =
-images[lightboxIndex];
+document.getElementById("lightboxImage").src=images[lightboxIndex];
 
-document
-.getElementById("lightboxCounter")
-.textContent =
-(lightboxIndex + 1) +
-" / " +
-images.length;
+document.getElementById("lightboxCounter").textContent=
+(lightboxIndex+1)+" / "+images.length;
 
 }
 
 function changeLightboxImage(direction){
 
-lightboxIndex += direction;
-
+lightboxIndex+=direction;
 updateLightbox();
 
 }
 
 function closeLightbox(){
 
-document
-.getElementById("lightbox")
-.classList.remove("open");
-
-document.body.style.overflow =
-"";
+document.getElementById("lightbox").classList.remove("open");
+document.body.style.overflow="";
 
 }
 
-document
-.getElementById("lightbox")
-.addEventListener(
-"click",
-function(event){
+document.getElementById("lightbox").addEventListener("click",event=>{
 
-if(event.target.id === "lightbox"){
-
+if(event.target.id==="lightbox"){
 closeLightbox();
-
 }
 
 });
 
-document.addEventListener(
-"keydown",
-function(event){
+document.addEventListener("keydown",event=>{
 
-if(
-document
-.getElementById("lightbox")
-.classList.contains("open")
-){
+if(document.getElementById("lightbox").classList.contains("open")){
 
-if(event.key === "Escape"){
-
-closeLightbox();
-
-}
-
-if(event.key === "ArrowLeft"){
-
-changeLightboxImage(-1);
-
-}
-
-if(event.key === "ArrowRight"){
-
-changeLightboxImage(1);
-
-}
+if(event.key==="Escape") closeLightbox();
+if(event.key==="ArrowLeft") changeLightboxImage(-1);
+if(event.key==="ArrowRight") changeLightboxImage(1);
 
 }
 
 });
-
-/* PHONE SWIPE */
-
-let touchStartX = 0;
-
-document
-.getElementById("lightbox")
-.addEventListener(
-"touchstart",
-function(event){
-
-touchStartX =
-event.changedTouches[0].screenX;
-
-},
-{
-passive:true
-}
-);
-
-document
-.getElementById("lightbox")
-.addEventListener(
-"touchend",
-function(event){
-
-const touchEndX =
-event.changedTouches[0].screenX;
-
-const distance =
-touchEndX - touchStartX;
-
-if(Math.abs(distance) > 50){
-
-if(distance < 0){
-
-changeLightboxImage(1);
-
-}
-
-else{
-
-changeLightboxImage(-1);
-
-}
-
-}
-
-},
-{
-passive:true
-}
-);
 
 /* HERO */
 
-const heroSlides =
-document.querySelectorAll(".hero-slide");
+const heroSlides=document.querySelectorAll(".hero-slide");
+const heroDots=document.querySelectorAll(".hero-dot");
 
-const heroDots =
-document.querySelectorAll(".hero-dot");
-
-const heroContent = [
+const heroContent=[
 
 {
 title:"Automotive<br>Photography",
@@ -3289,335 +2586,133 @@ gallery:"interior"
 
 ];
 
-let currentSlide = 0;
-
+let currentSlide=0;
 let slideshowTimer;
 
 function showSlide(index){
 
-if(index < 0){
+if(index<0) index=heroSlides.length-1;
+if(index>=heroSlides.length) index=0;
 
-index =
-heroSlides.length - 1;
+currentSlide=index;
 
-}
+heroSlides.forEach(slide=>slide.classList.remove("active"));
+heroDots.forEach(dot=>dot.classList.remove("active"));
 
-if(index >= heroSlides.length){
+heroSlides[currentSlide].classList.add("active");
+heroDots[currentSlide].classList.add("active");
 
-index = 0;
-
-}
-
-currentSlide =
-index;
-
-heroSlides.forEach(function(slide){
-
-slide.classList.remove("active");
-
-});
-
-heroDots.forEach(function(dot){
-
-dot.classList.remove("active");
-
-});
-
-heroSlides[currentSlide]
-.classList.add("active");
-
-heroDots[currentSlide]
-.classList.add("active");
-
-document
-.getElementById("heroTitle")
-.innerHTML =
-heroContent[currentSlide].title;
-
-document
-.getElementById("heroText")
-.textContent =
-heroContent[currentSlide].text;
-
-document
-.getElementById("heroCategory")
-.textContent =
-heroContent[currentSlide].category;
+document.getElementById("heroTitle").innerHTML=heroContent[currentSlide].title;
+document.getElementById("heroText").textContent=heroContent[currentSlide].text;
+document.getElementById("heroCategory").textContent=heroContent[currentSlide].category;
 
 restartSlideshow();
 
 }
 
 function changeSlide(direction){
-
-showSlide(
-currentSlide + direction
-);
-
+showSlide(currentSlide+direction);
 }
 
 function goToSlide(index){
-
 showSlide(index);
-
 }
 
 function restartSlideshow(){
 
-clearInterval(
-slideshowTimer
-);
+clearInterval(slideshowTimer);
 
-slideshowTimer =
-setInterval(
-function(){
-
-showSlide(
-currentSlide + 1
-);
-
-},
-5000
-);
+slideshowTimer=setInterval(()=>{
+showSlide(currentSlide+1);
+},5000);
 
 }
 
-document
-.getElementById("heroButton")
-.addEventListener(
-"click",
-function(event){
+document.getElementById("heroButton").addEventListener("click",event=>{
 
 event.preventDefault();
 
-openGalleryView(
-heroContent[currentSlide].gallery
-);
+openGalleryView(heroContent[currentSlide].gallery);
 
 });
 
 restartSlideshow();
 
-/* FLOATING CONTACT DIAL */
-
-const contactDial =
-document.getElementById("contactDial");
-
-let dialRotation = 0;
-
-let lastScrollY =
-window.scrollY;
-
-let dialTicking =
-false;
-
-window.addEventListener(
-"scroll",
-function(){
-
-if(!dialTicking){
-
-window.requestAnimationFrame(
-function(){
-
-const currentScrollY =
-window.scrollY;
-
-const difference =
-currentScrollY -
-lastScrollY;
-
-dialRotation +=
-difference * .09;
-
-contactDial.style.transform =
-"translateY(-50%) rotate(" +
-dialRotation +
-"deg)";
-
-lastScrollY =
-currentScrollY;
-
-dialTicking =
-false;
-
-}
-);
-
-dialTicking =
-true;
-
-}
-
-},
-{
-passive:true
-}
-);
-
-function goToContact(){
-
-returnToSite();
-
-setTimeout(
-function(){
-
-document
-.getElementById("contact")
-.scrollIntoView({
-behavior:"smooth",
-block:"start"
-});
-
-},
-20
-);
-
-}
-
 /* IMAGE PROTECTION */
 
-document
-.querySelectorAll(
-".gallery-item img, .gallery-photo img, #lightboxImage"
-)
-.forEach(
-function(image){
+document.addEventListener("dragstart",event=>{
 
-image.setAttribute(
-"draggable",
-"false"
-);
-
-}
-);
-
-document.addEventListener(
-"dragstart",
-function(event){
-
-if(
-event.target &&
-event.target.tagName === "IMG"
-){
-
+if(event.target && event.target.tagName==="IMG"){
 event.preventDefault();
-
 }
 
-}
-);
+});
 
-document.addEventListener(
-"contextmenu",
-function(event){
+document.addEventListener("contextmenu",event=>{
 
-if(
-event.target &&
-event.target.tagName === "IMG"
-){
-
+if(event.target && event.target.tagName==="IMG"){
 event.preventDefault();
-
 }
 
-}
-);
+});
 
 /* CONTACT FORM */
 
-const contactForm =
-document.getElementById("contactForm");
+const contactForm=document.getElementById("contactForm");
 
-const contactSuccess =
-document.querySelector("[data-fs-success]");
+const contactSuccess=document.querySelector("[data-fs-success]");
+const contactError=document.querySelector("[data-fs-error]");
+const contactSubmit=contactForm.querySelector('[type="submit"]');
 
-const contactError =
-document.querySelector("[data-fs-error]");
-
-const contactSubmit =
-contactForm.querySelector(
-'[type="submit"]'
-);
-
-contactForm.addEventListener(
-"submit",
-async function(event){
+contactForm.addEventListener("submit",async event=>{
 
 event.preventDefault();
 
-contactSuccess.textContent =
-"";
+contactSuccess.textContent="";
+contactError.textContent="";
 
-contactError.textContent =
-"";
-
-contactSubmit.disabled =
-true;
-
-contactSubmit.textContent =
-"Sending...";
+contactSubmit.disabled=true;
+contactSubmit.textContent="Sending...";
 
 try{
 
-const response =
-await fetch(
-contactForm.action,
-{
+const response=await fetch(contactForm.action,{
 
 method:"POST",
-
-body:new FormData(
-contactForm
-),
-
+body:new FormData(contactForm),
 headers:{
 Accept:"application/json"
 }
 
-}
-);
+});
 
 if(response.ok){
 
-contactSuccess.textContent =
+contactSuccess.textContent=
 "Message sent successfully. Thanks, I'll get back to you as soon as I can.";
 
 contactForm.reset();
 
-}
+}else{
 
-else{
-
-contactError.textContent =
+contactError.textContent=
 "Something went wrong. Please try again.";
 
 }
 
-}
+}catch(error){
 
-catch(error){
-
-contactError.textContent =
+contactError.textContent=
 "Something went wrong. Please check your connection and try again.";
 
 }
 
-finally{
+contactSubmit.disabled=false;
+contactSubmit.textContent="Send message";
 
-contactSubmit.disabled =
-false;
-
-contactSubmit.textContent =
-"Send message";
-
-}
-
-}
-);
+});
 
 </script>
 
 </body>
-
 </html>
