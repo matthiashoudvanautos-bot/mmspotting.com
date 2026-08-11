@@ -30,6 +30,12 @@ color:inherit;
 text-decoration:none;
 }
 
+button{
+font-family:inherit;
+}
+
+/* HEADER */
+
 header{
 position:fixed;
 top:0;
@@ -73,6 +79,7 @@ opacity:1;
 display:flex;
 justify-content:center;
 align-items:center;
+cursor:pointer;
 }
 
 .logo img{
@@ -189,7 +196,7 @@ text-transform:uppercase;
 opacity:.8;
 }
 
-/* SIMPLE ARROWS */
+/* SIMPLE HERO ARROWS */
 
 .hero-arrow{
 position:absolute;
@@ -203,7 +210,7 @@ font-size:45px;
 font-weight:200;
 cursor:pointer;
 padding:15px;
-opacity:.75;
+opacity:.7;
 transition:.25s;
 }
 
@@ -213,11 +220,11 @@ transform:translateY(-50%) scale(1.15);
 }
 
 .hero-arrow.left{
-left:25px;
+left:20px;
 }
 
 .hero-arrow.right{
-right:25px;
+right:20px;
 }
 
 .hero-dots{
@@ -240,6 +247,8 @@ transition:.3s;
 .hero-dot.active{
 background:white;
 }
+
+/* BUTTON */
 
 .button{
 display:inline-block;
@@ -268,6 +277,8 @@ background:white;
 color:#171717;
 }
 
+/* MOVING TEXT */
+
 .marquee{
 overflow:hidden;
 white-space:nowrap;
@@ -285,6 +296,20 @@ letter-spacing:5px;
 text-transform:uppercase;
 }
 
+@keyframes marquee{
+
+from{
+transform:translateX(0);
+}
+
+to{
+transform:translateX(-50%);
+}
+
+}
+
+/* GENERAL */
+
 section{
 padding:140px 7vw;
 }
@@ -296,6 +321,19 @@ text-transform:uppercase;
 opacity:.45;
 margin-bottom:25px;
 }
+
+.reveal{
+opacity:0;
+transform:translateY(60px);
+transition:1s ease;
+}
+
+.reveal.visible{
+opacity:1;
+transform:translateY(0);
+}
+
+/* ABOUT */
 
 .intro{
 min-height:80vh;
@@ -317,6 +355,8 @@ font-size:17px;
 line-height:1.8;
 color:#666;
 }
+
+/* PORTFOLIO */
 
 .portfolio{
 background:#e7e5df;
@@ -369,6 +409,7 @@ grid-row:span 2;
 width:100%;
 height:100%;
 object-fit:cover;
+display:block;
 transition:1s;
 }
 
@@ -387,7 +428,7 @@ background:rgba(244,243,239,.85);
 padding:8px 12px;
 }
 
-/* SEPARATE GALLERY VIEW */
+/* SEPARATE GALLERY */
 
 .site-main.hidden{
 display:none;
@@ -484,9 +525,17 @@ transition:.6s;
 transform:scale(1.04);
 }
 
+/* APPROACH */
+
 .approach{
 background:#171717;
 color:#f4f3ef;
+}
+
+.approach-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:100px;
 }
 
 .approach-text{
@@ -498,12 +547,6 @@ color:#aaa;
 
 .approach-text p+p{
 margin-top:25px;
-}
-
-.approach-grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:100px;
 }
 
 .steps{
@@ -543,6 +586,8 @@ line-height:1.6;
 opacity:.65;
 }
 
+/* INFO */
+
 .info{
 background:#f4f3ef;
 }
@@ -564,8 +609,44 @@ max-width:600px;
 margin-top:20px;
 }
 
+/* PRICES */
+
 .prices{
 background:#dedcd6;
+}
+
+.price-tabs{
+display:flex;
+gap:12px;
+flex-wrap:wrap;
+margin-top:50px;
+margin-bottom:40px;
+}
+
+.price-tab{
+border:1px solid #999;
+background:transparent;
+padding:13px 20px;
+font-size:10px;
+letter-spacing:2px;
+text-transform:uppercase;
+cursor:pointer;
+transition:.3s;
+}
+
+.price-tab:hover,
+.price-tab.active{
+background:#171717;
+color:white;
+border-color:#171717;
+}
+
+.price-group{
+display:none;
+}
+
+.price-group.active{
+display:block;
 }
 
 .price-grid{
@@ -573,7 +654,6 @@ display:grid;
 grid-template-columns:repeat(3,1fr);
 gap:1px;
 background:#aaa;
-margin-top:70px;
 }
 
 .price{
@@ -609,6 +689,13 @@ line-height:2;
 color:#aaa;
 }
 
+.single-price-grid{
+display:grid;
+grid-template-columns:minmax(280px,520px);
+}
+
+/* BLOG */
+
 .blog{
 background:#f4f3ef;
 }
@@ -642,6 +729,8 @@ color:#666;
 line-height:1.7;
 }
 
+/* CONTACT */
+
 .contact{
 min-height:80vh;
 display:flex;
@@ -663,6 +752,8 @@ font-size:17px;
 line-height:1.7;
 margin-top:35px;
 }
+
+/* SOCIAL ICONS */
 
 .social-links{
 display:flex;
@@ -692,6 +783,8 @@ width:20px;
 height:20px;
 fill:currentColor;
 }
+
+/* LIGHTBOX */
 
 .lightbox{
 position:fixed;
@@ -724,6 +817,8 @@ cursor:pointer;
 font-weight:300;
 }
 
+/* FOOTER */
+
 footer{
 padding:35px 7vw;
 border-top:1px solid #ccc;
@@ -735,21 +830,7 @@ text-transform:uppercase;
 color:#777;
 }
 
-.reveal{
-opacity:0;
-transform:translateY(60px);
-transition:1s ease;
-}
-
-.reveal.visible{
-opacity:1;
-transform:translateY(0);
-}
-
-@keyframes marquee{
-from{transform:translateX(0);}
-to{transform:translateX(-50%);}
-}
+/* MOBILE */
 
 @media(max-width:850px){
 
@@ -800,11 +881,11 @@ top:46%;
 }
 
 .hero-arrow.left{
-left:8px;
+left:7px;
 }
 
 .hero-arrow.right{
-right:8px;
+right:7px;
 }
 
 .hero-dots{
@@ -848,13 +929,25 @@ gap:45px;
 grid-template-columns:1fr;
 }
 
-.price-grid,
-.blog-grid{
+.price-tabs{
+gap:8px;
+}
+
+.price-tab{
+padding:11px 13px;
+font-size:9px;
+}
+
+.price-grid{
 grid-template-columns:1fr;
 }
 
 .price{
 min-height:380px;
+}
+
+.blog-grid{
+grid-template-columns:1fr;
 }
 
 .portfolio-header{
@@ -880,72 +973,111 @@ gap:15px;
 <header>
 
 <div class="nav-left nav">
-<a href="#home" onclick="closeGalleryView()">Home</a>
-<a href="#about" onclick="closeGalleryView()">About</a>
-<a href="#approach" onclick="closeGalleryView()">My Approach</a>
-<a href="#info" onclick="closeGalleryView()">Info</a>
+
+<a href="#home" onclick="closeGalleryView(false)">Home</a>
+<a href="#about" onclick="closeGalleryView(false)">About</a>
+<a href="#approach" onclick="closeGalleryView(false)">My Approach</a>
+<a href="#info" onclick="closeGalleryView(false)">Info</a>
+
 </div>
 
-<a href="#home" class="logo" onclick="closeGalleryView()">
-<img src="IMG_1525.jpg" alt="mm_spotting Photography logo">
+<a href="#home" class="logo" onclick="closeGalleryView(false)">
+
+<img
+src="IMG_1525.jpg"
+alt="mm_spotting Photography logo"
+>
+
 </a>
 
 <div class="nav-right nav">
-<a href="#portfolio" onclick="closeGalleryView()">Portfolio</a>
-<a href="#" onclick="openGalleryView('automotive'); return false;">Gallery</a>
-<a href="#prices" onclick="closeGalleryView()">Prices</a>
-<a href="#blog" onclick="closeGalleryView()">Blog</a>
-<a href="#contact" onclick="closeGalleryView()">Contact</a>
-</div>
 
-<div class="menu-button" onclick="toggleMenu()">Menu</div>
+<a href="#portfolio" onclick="closeGalleryView(false)">Portfolio</a>
 
-</header>
-
-<div class="mobile-menu" id="mobileMenu">
-
-<a href="#home" onclick="closeGalleryView()">Home</a>
-<a href="#about" onclick="closeGalleryView()">About</a>
-<a href="#approach" onclick="closeGalleryView()">My Approach</a>
-<a href="#info" onclick="closeGalleryView()">Info</a>
-<a href="#portfolio" onclick="closeGalleryView()">Portfolio</a>
-
-<a href="#" onclick="openGalleryView('automotive'); return false;">
+<a href="#"
+onclick="openGalleryView('automotive'); return false;">
 Gallery
 </a>
 
-<a href="#prices" onclick="closeGalleryView()">Prices</a>
-<a href="#blog" onclick="closeGalleryView()">Blog</a>
-<a href="#contact" onclick="closeGalleryView()">Contact</a>
+<a href="#prices" onclick="closeGalleryView(false)">Prices</a>
+<a href="#blog" onclick="closeGalleryView(false)">Blog</a>
+<a href="#contact" onclick="closeGalleryView(false)">Contact</a>
 
 </div>
 
-<main class="site-main" id="siteMain">
+<div
+class="menu-button"
+onclick="toggleMenu()">
+Menu
+</div>
 
-<section class="hero" id="home">
+</header>
 
-<div class="hero-slide active"
-style="background-image:url('banner.jpg');"></div>
+<div
+class="mobile-menu"
+id="mobileMenu">
 
-<div class="hero-slide"
-style="background-image:url('PICT0087.jpg');"></div>
+<a href="#home" onclick="closeGalleryView(false)">Home</a>
+<a href="#about" onclick="closeGalleryView(false)">About</a>
+<a href="#approach" onclick="closeGalleryView(false)">My Approach</a>
+<a href="#info" onclick="closeGalleryView(false)">Info</a>
+<a href="#portfolio" onclick="closeGalleryView(false)">Portfolio</a>
 
-<div class="hero-slide"
-style="background-image:url('IMG_4197.jpg');"></div>
+<a href="#"
+onclick="openGalleryView('automotive'); return false;">
+Gallery
+</a>
 
-<div class="hero-slide"
-style="background-image:url('IMG_4269.jpg');"></div>
+<a href="#prices" onclick="closeGalleryView(false)">Prices</a>
+<a href="#blog" onclick="closeGalleryView(false)">Blog</a>
+<a href="#contact" onclick="closeGalleryView(false)">Contact</a>
 
-<div class="hero-slide"
-style="background-image:url('IMG_4138.jpg');"></div>
+</div>
 
-<button class="hero-arrow left"
+<main
+class="site-main"
+id="siteMain">
+
+<!-- HERO -->
+
+<section
+class="hero"
+id="home">
+
+<div
+class="hero-slide active"
+style="background-image:url('banner.jpg');">
+</div>
+
+<div
+class="hero-slide"
+style="background-image:url('PICT0087.jpg');">
+</div>
+
+<div
+class="hero-slide"
+style="background-image:url('IMG_4197.jpg');">
+</div>
+
+<div
+class="hero-slide"
+style="background-image:url('IMG_4269.jpg');">
+</div>
+
+<div
+class="hero-slide"
+style="background-image:url('IMG_4138.jpg');">
+</div>
+
+<button
+class="hero-arrow left"
 onclick="changeSlide(-1)"
 aria-label="Previous image">
 ‹
 </button>
 
-<button class="hero-arrow right"
+<button
+class="hero-arrow right"
 onclick="changeSlide(1)"
 aria-label="Next image">
 ›
@@ -967,11 +1099,14 @@ Clean, detailed and memorable photography
 for cars, owners, enthusiasts and automotive events.
 </p>
 
-<div class="hero-category" id="heroCategory">
+<div
+class="hero-category"
+id="heroCategory">
 Automotive
 </div>
 
-<a href="#"
+<a
+href="#"
 class="button"
 id="heroButton">
 View Gallery
@@ -981,25 +1116,52 @@ View Gallery
 
 <div class="hero-dots">
 
-<div class="hero-dot active" onclick="goToSlide(0)"></div>
-<div class="hero-dot" onclick="goToSlide(1)"></div>
-<div class="hero-dot" onclick="goToSlide(2)"></div>
-<div class="hero-dot" onclick="goToSlide(3)"></div>
-<div class="hero-dot" onclick="goToSlide(4)"></div>
+<div
+class="hero-dot active"
+onclick="goToSlide(0)">
+</div>
+
+<div
+class="hero-dot"
+onclick="goToSlide(1)">
+</div>
+
+<div
+class="hero-dot"
+onclick="goToSlide(2)">
+</div>
+
+<div
+class="hero-dot"
+onclick="goToSlide(3)">
+</div>
+
+<div
+class="hero-dot"
+onclick="goToSlide(4)">
+</div>
 
 </div>
 
 </section>
 
+<!-- MOVING TEXT -->
+
 <div class="marquee">
 
 <div class="marquee-inner">
+
 AUTOMOTIVE PHOTOGRAPHY • CARS • DETAILS • ATMOSPHERE • mm_spotting • AUTOMOTIVE PHOTOGRAPHY • CARS • DETAILS • ATMOSPHERE • mm_spotting •
-</div>
 
 </div>
 
-<section class="intro reveal" id="about">
+</div>
+
+<!-- ABOUT -->
+
+<section
+class="intro reveal"
+id="about">
 
 <div>
 
@@ -1023,7 +1185,11 @@ that make every car different.
 
 </section>
 
-<section class="portfolio" id="portfolio">
+<!-- PORTFOLIO -->
+
+<section
+class="portfolio"
+id="portfolio">
 
 <div class="portfolio-header reveal">
 
@@ -1047,88 +1213,172 @@ Click any image to open its full gallery category.
 
 <div class="gallery">
 
-<a class="gallery-item reveal"
+<a
+class="gallery-item reveal"
 href="#"
 onclick="openGalleryView('automotive'); return false;">
-<img src="banner.jpg" alt="Automotive photography">
-<span>Automotive</span>
+
+<img
+src="banner.jpg"
+alt="Automotive photography">
+
+<span>
+Automotive
+</span>
+
 </a>
 
-<a class="gallery-item reveal"
+<a
+class="gallery-item reveal"
 href="#"
 onclick="openGalleryView('automotive'); return false;">
-<img src="IMG_2099.jpg" alt="Porsche automotive photography">
-<span>Automotive</span>
+
+<img
+src="IMG_2099.jpg"
+alt="Porsche automotive photography">
+
+<span>
+Automotive
+</span>
+
 </a>
 
-<a class="gallery-item reveal"
+<a
+class="gallery-item reveal"
 href="#"
 onclick="openGalleryView('automotive'); return false;">
-<img src="IMG_2115.jpg" alt="Automotive photography">
-<span>Automotive</span>
+
+<img
+src="IMG_2115.jpg"
+alt="Automotive photography">
+
+<span>
+Automotive
+</span>
+
 </a>
 
-<a class="gallery-item reveal"
+<a
+class="gallery-item reveal"
 href="#"
 onclick="openGalleryView('automotive'); return false;">
-<img src="IMG_2909.jpg" alt="Automotive photography">
-<span>Automotive</span>
+
+<img
+src="IMG_2909.jpg"
+alt="Automotive photography">
+
+<span>
+Automotive
+</span>
+
 </a>
 
-<a class="gallery-item reveal"
+<a
+class="gallery-item reveal"
 href="#"
 onclick="openGalleryView('wedding'); return false;">
-<img src="PICT0087.jpg" alt="Wedding photography">
-<span>Wedding</span>
+
+<img
+src="PICT0087.jpg"
+alt="Wedding photography">
+
+<span>
+Wedding
+</span>
+
 </a>
 
-<a class="gallery-item reveal"
+<a
+class="gallery-item reveal"
 href="#"
 onclick="openGalleryView('interior'); return false;">
-<img src="IMG_4138.jpg" alt="Car interior photography">
-<span>Interior Shots</span>
+
+<img
+src="IMG_4138.jpg"
+alt="Car interior photography">
+
+<span>
+Interior Shots
+</span>
+
 </a>
 
-<a class="gallery-item reveal"
+<a
+class="gallery-item reveal"
 href="#"
 onclick="openGalleryView('pets'); return false;">
-<img src="IMG_4197.jpg" alt="Pet photography">
-<span>Pets</span>
+
+<img
+src="IMG_4197.jpg"
+alt="Pet photography">
+
+<span>
+Pets
+</span>
+
 </a>
 
-<a class="gallery-item reveal"
+<a
+class="gallery-item reveal"
 href="#"
 onclick="openGalleryView('details'); return false;">
-<img src="IMG_4269.jpg" alt="Automotive detail photography">
-<span>Details</span>
+
+<img
+src="IMG_4269.jpg"
+alt="Automotive detail photography">
+
+<span>
+Details
+</span>
+
 </a>
 
-<a class="gallery-item reveal"
+<a
+class="gallery-item reveal"
 href="#"
 onclick="openGalleryView('automotive'); return false;">
-<img src="IMG_2788.jpg" alt="Automotive photography">
-<span>Automotive</span>
+
+<img
+src="IMG_2788.jpg"
+alt="Automotive photography">
+
+<span>
+Automotive
+</span>
+
 </a>
 
-<a class="gallery-item reveal"
+<a
+class="gallery-item reveal"
 href="#"
 onclick="openGalleryView('automotive'); return false;">
-<img src="IMG_2854.jpg" alt="Automotive photography">
-<span>Automotive</span>
+
+<img
+src="IMG_2854.jpg"
+alt="Automotive photography">
+
+<span>
+Automotive
+</span>
+
 </a>
 
 </div>
 
 </section>
 
-<section class="approach" id="approach">
+<!-- APPROACH -->
+
+<section
+class="approach"
+id="approach">
 
 <div class="approach-grid">
 
 <div class="reveal">
 
 <div class="section-number">
-04 / My Approach
+03 / My Approach
 </div>
 
 <h2>
@@ -1164,35 +1414,69 @@ Create photographs that you actually want to keep.
 <div class="steps">
 
 <div class="step reveal">
-<div class="step-number">01</div>
-<h3>Plan</h3>
-<p>We discuss your car, location and the style you want.</p>
+
+<div class="step-number">
+01
+</div>
+
+<h3>
+Plan
+</h3>
+
+<p>
+We discuss your car, location and the style you want.
+</p>
+
 </div>
 
 <div class="step reveal">
-<div class="step-number">02</div>
-<h3>Shoot</h3>
-<p>We take our time finding the best angles and details.</p>
+
+<div class="step-number">
+02
+</div>
+
+<h3>
+Shoot
+</h3>
+
+<p>
+We take our time finding the best angles and details.
+</p>
+
 </div>
 
 <div class="step reveal">
-<div class="step-number">03</div>
-<h3>Deliver</h3>
-<p>Your finished edited images are delivered digitally.</p>
+
+<div class="step-number">
+03
+</div>
+
+<h3>
+Deliver
+</h3>
+
+<p>
+Your finished edited images are delivered digitally.
+</p>
+
 </div>
 
 </div>
 
 </section>
 
-<section class="info" id="info">
+<!-- INFO -->
+
+<section
+class="info"
+id="info">
 
 <div class="info-grid">
 
 <div class="reveal">
 
 <div class="section-number">
-05 / Information
+04 / Information
 </div>
 
 <h2>
@@ -1221,7 +1505,9 @@ As the business grows I also hope to expand into
 weddings, private events and other special occasions.
 </p>
 
-<a href="#contact" class="button">
+<a
+href="#contact"
+class="button">
 Ask a question
 </a>
 
@@ -1231,23 +1517,70 @@ Ask a question
 
 </section>
 
-<section class="prices" id="prices">
+<!-- PRICES -->
+
+<section
+class="prices"
+id="prices">
 
 <div class="section-number reveal">
-06 / Prices
+05 / Prices
 </div>
 
 <h2 class="reveal">
-Automotive<br>
-Shoots
+Photography<br>
+Prices
 </h2>
+
+<div class="price-tabs reveal">
+
+<button
+class="price-tab active"
+data-price="automotive"
+onclick="showPriceGroup('automotive')">
+Automotive
+</button>
+
+<button
+class="price-tab"
+data-price="events"
+onclick="showPriceGroup('events')">
+Events
+</button>
+
+<button
+class="price-tab"
+data-price="weddings"
+onclick="showPriceGroup('weddings')">
+Weddings
+</button>
+
+<button
+class="price-tab"
+data-price="pets"
+onclick="showPriceGroup('pets')">
+Pets
+</button>
+
+</div>
+
+<!-- AUTOMOTIVE PRICES -->
+
+<div
+class="price-group active"
+id="price-automotive">
 
 <div class="price-grid">
 
-<div class="price reveal">
+<div class="price">
 
-<h3>Essential</h3>
-<div class="price-value">£50</div>
+<h3>
+Essential
+</h3>
+
+<div class="price-value">
+£50
+</div>
 
 <ul>
 <li>30 minute shoot</li>
@@ -1256,16 +1589,23 @@ Shoots
 <li>Digital delivery</li>
 </ul>
 
-<a href="#contact" class="button">
+<a
+href="#contact"
+class="button">
 Book
 </a>
 
 </div>
 
-<div class="price reveal">
+<div class="price">
 
-<h3>Standard</h3>
-<div class="price-value">£85</div>
+<h3>
+Standard
+</h3>
+
+<div class="price-value">
+£85
+</div>
 
 <ul>
 <li>1 hour shoot</li>
@@ -1274,16 +1614,23 @@ Book
 <li>Digital delivery</li>
 </ul>
 
-<a href="#contact" class="button">
+<a
+href="#contact"
+class="button">
 Book
 </a>
 
 </div>
 
-<div class="price reveal">
+<div class="price">
 
-<h3>Premium</h3>
-<div class="price-value">£140</div>
+<h3>
+Premium
+</h3>
+
+<div class="price-value">
+£140
+</div>
 
 <ul>
 <li>2 hour shoot</li>
@@ -1292,7 +1639,9 @@ Book
 <li>Digital delivery</li>
 </ul>
 
-<a href="#contact" class="button">
+<a
+href="#contact"
+class="button">
 Book
 </a>
 
@@ -1300,12 +1649,179 @@ Book
 
 </div>
 
+</div>
+
+<!-- EVENT PRICES -->
+
+<div
+class="price-group"
+id="price-events">
+
+<div class="single-price-grid">
+
+<div class="price">
+
+<h3>
+Events
+</h3>
+
+<div class="price-value">
+From £75
+</div>
+
+<ul>
+<li>Price per hour</li>
+<li>Edited digital images</li>
+<li>Automotive or private events</li>
+<li>Longer bookings quoted separately</li>
+</ul>
+
+<a
+href="#contact"
+class="button">
+Ask for a quote
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- WEDDING PRICES -->
+
+<div
+class="price-group"
+id="price-weddings">
+
+<div class="single-price-grid">
+
+<div class="price">
+
+<h3>
+Weddings
+</h3>
+
+<div class="price-value">
+Custom Quote
+</div>
+
+<ul>
+<li>Packages depend on coverage time</li>
+<li>Location and travel discussed beforehand</li>
+<li>Edited digital photographs included</li>
+<li>Contact me to discuss your wedding</li>
+</ul>
+
+<a
+href="#contact"
+class="button">
+Ask for a quote
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- PET PRICES -->
+
+<div
+class="price-group"
+id="price-pets">
+
+<div class="price-grid">
+
+<div class="price">
+
+<h3>
+Mini
+</h3>
+
+<div class="price-value">
+£40
+</div>
+
+<ul>
+<li>30 minute shoot</li>
+<li>1 location</li>
+<li>8 edited images</li>
+<li>Digital delivery</li>
+</ul>
+
+<a
+href="#contact"
+class="button">
+Book
+</a>
+
+</div>
+
+<div class="price">
+
+<h3>
+Standard
+</h3>
+
+<div class="price-value">
+£70
+</div>
+
+<ul>
+<li>1 hour shoot</li>
+<li>1 location</li>
+<li>15 edited images</li>
+<li>Digital delivery</li>
+</ul>
+
+<a
+href="#contact"
+class="button">
+Book
+</a>
+
+</div>
+
+<div class="price">
+
+<h3>
+Premium
+</h3>
+
+<div class="price-value">
+£110
+</div>
+
+<ul>
+<li>Up to 90 minutes</li>
+<li>Up to 2 locations</li>
+<li>25 edited images</li>
+<li>Digital delivery</li>
+</ul>
+
+<a
+href="#contact"
+class="button">
+Book
+</a>
+
+</div>
+
+</div>
+
+</div>
+
 </section>
 
-<section class="blog" id="blog">
+<!-- BLOG -->
+
+<section
+class="blog"
+id="blog">
 
 <div class="section-number reveal">
-07 / Blog
+06 / Blog
 </div>
 
 <h2 class="reveal">
@@ -1326,7 +1842,8 @@ How I photograph cars
 </h3>
 
 <p>
-A look behind the scenes at how an automotive shoot comes together.
+A look behind the scenes at how
+an automotive shoot comes together.
 </p>
 
 </article>
@@ -1342,7 +1859,8 @@ Finding the perfect location
 </h3>
 
 <p>
-Why location light and background matter so much in automotive photography.
+Why location light and background matter
+so much in automotive photography.
 </p>
 
 </article>
@@ -1358,7 +1876,8 @@ The story behind mm_spotting
 </h3>
 
 <p>
-How a passion for cars turned into a growing photography business.
+How a passion for cars turned into
+a growing photography business.
 </p>
 
 </article>
@@ -1367,10 +1886,14 @@ How a passion for cars turned into a growing photography business.
 
 </section>
 
-<section class="contact" id="contact">
+<!-- CONTACT -->
+
+<section
+class="contact"
+id="contact">
 
 <div class="section-number reveal">
-08 / Contact
+07 / Contact
 </div>
 
 <h2 class="reveal">
@@ -1379,7 +1902,7 @@ something.
 </h2>
 
 <p class="reveal">
-Have a car you want photographed?
+Have something you want photographed?
 Tell me what you have in mind.
 </p>
 
@@ -1391,6 +1914,8 @@ Enquire about a shoot
 
 <div class="social-links reveal">
 
+<!-- INSTAGRAM -->
+
 <a
 class="social-link"
 href="https://www.instagram.com/mm_spotting_/"
@@ -1399,10 +1924,14 @@ rel="noopener"
 aria-label="Instagram">
 
 <svg viewBox="0 0 24 24">
+
 <path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2c1.66 0 3 1.34 3 3v10c0 1.66-1.34 3-3 3H7c-1.66 0-3-1.34-3-3V7c0-1.66 1.34-3 3-3h10zm-5 3a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm5.5-3.5a1.25 1.25 0 100 2.5 1.25 1.25 0 000-2.5z"/>
+
 </svg>
 
 </a>
+
+<!-- FACEBOOK -->
 
 <a
 class="social-link"
@@ -1412,10 +1941,14 @@ rel="noopener"
 aria-label="Facebook">
 
 <svg viewBox="0 0 24 24">
+
 <path d="M13.5 22v-9h3l.5-3h-3.5V8.1c0-.9.3-1.6 1.7-1.6H17V3.8c-.4-.1-1.4-.2-2.5-.2-2.5 0-4.2 1.5-4.2 4.3V10H7.5v3h2.8v9h3.2z"/>
+
 </svg>
 
 </a>
+
+<!-- TIKTOK -->
 
 <a
 class="social-link"
@@ -1425,7 +1958,9 @@ rel="noopener"
 aria-label="TikTok">
 
 <svg viewBox="0 0 24 24">
+
 <path d="M15.6 2c.3 2.2 1.6 3.6 3.8 3.8v3.1c-1.3 0-2.5-.3-3.8-1v6.2c0 5.4-5.9 7.1-8.6 4.6-1.8-1.7-2.2-4.6-.9-6.7 1.5-2.4 4.4-2.8 6.4-1.9v3.2c-.6-.2-1.1-.4-1.8-.3-1.6.2-2.5 1.8-1.8 3.1.7 1.4 2.8 1.6 3.7.3.3-.4.4-1 .4-1.5V2h2.6z"/>
+
 </svg>
 
 </a>
@@ -1448,17 +1983,20 @@ Automotive Photography
 
 </main>
 
-<!-- SEPARATE GALLERY -->
+<!-- SEPARATE GALLERY VIEW -->
 
-<section class="gallery-view" id="galleryView">
+<section
+class="gallery-view"
+id="galleryView">
 
-<div class="gallery-back"
-onclick="closeGalleryView()">
+<div
+class="gallery-back"
+onclick="closeGalleryView(true)">
 ← Back to site
 </div>
 
 <div class="section-number">
-03 / Gallery
+Gallery
 </div>
 
 <h2>
@@ -1504,7 +2042,11 @@ Details
 
 </div>
 
-<div class="gallery-category active" id="gallery-automotive">
+<!-- AUTOMOTIVE GALLERY -->
+
+<div
+class="gallery-category active"
+id="gallery-automotive">
 
 <h3>
 Automotive
@@ -1512,35 +2054,75 @@ Automotive
 
 <div class="gallery-grid">
 
-<div class="gallery-photo" onclick="openLightbox('banner.jpg')">
-<img src="banner.jpg" alt="Automotive photography">
-</div>
+<div
+class="gallery-photo"
+onclick="openLightbox('banner.jpg')">
 
-<div class="gallery-photo" onclick="openLightbox('IMG_2099.jpg')">
-<img src="IMG_2099.jpg" alt="Porsche automotive photography">
-</div>
-
-<div class="gallery-photo" onclick="openLightbox('IMG_2115.jpg')">
-<img src="IMG_2115.jpg" alt="Automotive photography">
-</div>
-
-<div class="gallery-photo" onclick="openLightbox('IMG_2909.jpg')">
-<img src="IMG_2909.jpg" alt="Automotive photography">
-</div>
-
-<div class="gallery-photo" onclick="openLightbox('IMG_2788.jpg')">
-<img src="IMG_2788.jpg" alt="Automotive photography">
-</div>
-
-<div class="gallery-photo" onclick="openLightbox('IMG_2854.jpg')">
-<img src="IMG_2854.jpg" alt="Automotive photography">
-</div>
+<img
+src="banner.jpg"
+alt="Automotive photography">
 
 </div>
 
+<div
+class="gallery-photo"
+onclick="openLightbox('IMG_2099.jpg')">
+
+<img
+src="IMG_2099.jpg"
+alt="Porsche automotive photography">
+
 </div>
 
-<div class="gallery-category" id="gallery-wedding">
+<div
+class="gallery-photo"
+onclick="openLightbox('IMG_2115.jpg')">
+
+<img
+src="IMG_2115.jpg"
+alt="Automotive photography">
+
+</div>
+
+<div
+class="gallery-photo"
+onclick="openLightbox('IMG_2909.jpg')">
+
+<img
+src="IMG_2909.jpg"
+alt="Automotive photography">
+
+</div>
+
+<div
+class="gallery-photo"
+onclick="openLightbox('IMG_2788.jpg')">
+
+<img
+src="IMG_2788.jpg"
+alt="Automotive photography">
+
+</div>
+
+<div
+class="gallery-photo"
+onclick="openLightbox('IMG_2854.jpg')">
+
+<img
+src="IMG_2854.jpg"
+alt="Automotive photography">
+
+</div>
+
+</div>
+
+</div>
+
+<!-- WEDDING -->
+
+<div
+class="gallery-category"
+id="gallery-wedding">
 
 <h3>
 Wedding
@@ -1548,15 +2130,25 @@ Wedding
 
 <div class="gallery-grid">
 
-<div class="gallery-photo" onclick="openLightbox('PICT0087.jpg')">
-<img src="PICT0087.jpg" alt="Wedding photography">
-</div>
+<div
+class="gallery-photo"
+onclick="openLightbox('PICT0087.jpg')">
+
+<img
+src="PICT0087.jpg"
+alt="Wedding photography">
 
 </div>
 
 </div>
 
-<div class="gallery-category" id="gallery-interior">
+</div>
+
+<!-- INTERIOR -->
+
+<div
+class="gallery-category"
+id="gallery-interior">
 
 <h3>
 Interior Shots
@@ -1564,15 +2156,25 @@ Interior Shots
 
 <div class="gallery-grid">
 
-<div class="gallery-photo" onclick="openLightbox('IMG_4138.jpg')">
-<img src="IMG_4138.jpg" alt="Interior photography">
-</div>
+<div
+class="gallery-photo"
+onclick="openLightbox('IMG_4138.jpg')">
+
+<img
+src="IMG_4138.jpg"
+alt="Interior photography">
 
 </div>
 
 </div>
 
-<div class="gallery-category" id="gallery-pets">
+</div>
+
+<!-- PETS -->
+
+<div
+class="gallery-category"
+id="gallery-pets">
 
 <h3>
 Pets
@@ -1580,15 +2182,25 @@ Pets
 
 <div class="gallery-grid">
 
-<div class="gallery-photo" onclick="openLightbox('IMG_4197.jpg')">
-<img src="IMG_4197.jpg" alt="Pet photography">
-</div>
+<div
+class="gallery-photo"
+onclick="openLightbox('IMG_4197.jpg')">
+
+<img
+src="IMG_4197.jpg"
+alt="Pet photography">
 
 </div>
 
 </div>
 
-<div class="gallery-category" id="gallery-details">
+</div>
+
+<!-- DETAILS -->
+
+<div
+class="gallery-category"
+id="gallery-details">
 
 <h3>
 Details
@@ -1596,8 +2208,14 @@ Details
 
 <div class="gallery-grid">
 
-<div class="gallery-photo" onclick="openLightbox('IMG_4269.jpg')">
-<img src="IMG_4269.jpg" alt="Detail photography">
+<div
+class="gallery-photo"
+onclick="openLightbox('IMG_4269.jpg')">
+
+<img
+src="IMG_4269.jpg"
+alt="Detail photography">
+
 </div>
 
 </div>
@@ -1606,11 +2224,15 @@ Details
 
 </section>
 
-<div class="lightbox"
+<!-- LIGHTBOX -->
+
+<div
+class="lightbox"
 id="lightbox"
 onclick="closeLightbox(event)">
 
-<div class="lightbox-close"
+<div
+class="lightbox-close"
 onclick="closeLightbox(event)">
 ×
 </div>
@@ -1635,7 +2257,7 @@ document
 }
 
 
-/* SCROLL ANIMATION */
+/* REVEAL ANIMATIONS */
 
 const reveals =
 document.querySelectorAll(".reveal");
@@ -1678,7 +2300,9 @@ document
 .getElementById("mobileMenu")
 .classList.remove("open");
 
-showGalleryCategory(category || "automotive");
+showGalleryCategory(
+category || "automotive"
+);
 
 window.scrollTo({
 top:0,
@@ -1688,24 +2312,34 @@ behavior:"auto"
 }
 
 
-function closeGalleryView(){
+function closeGalleryView(scrollTop){
 
-document
-.getElementById("galleryView")
-.classList.remove("active");
+const gallery =
+document.getElementById("galleryView");
 
-document
-.getElementById("siteMain")
-.classList.remove("hidden");
+const main =
+document.getElementById("siteMain");
+
+if(!gallery.classList.contains("active")){
+return;
+}
+
+gallery.classList.remove("active");
+
+main.classList.remove("hidden");
 
 document
 .getElementById("mobileMenu")
 .classList.remove("open");
 
+if(scrollTop){
+
 window.scrollTo({
 top:0,
 behavior:"auto"
 });
+
+}
 
 }
 
@@ -1729,7 +2363,9 @@ button.classList.remove("active");
 });
 
 const categorySection =
-document.getElementById("gallery-" + category);
+document.getElementById(
+"gallery-" + category
+);
 
 if(categorySection){
 
@@ -1739,12 +2375,66 @@ categorySection.classList.add("active");
 
 const categoryButton =
 document.querySelector(
-'.category-button[data-category="' + category + '"]'
+'.category-button[data-category="' +
+category +
+'"]'
 );
 
 if(categoryButton){
 
 categoryButton.classList.add("active");
+
+}
+
+window.scrollTo({
+top:0,
+behavior:"auto"
+});
+
+}
+
+
+/* PRICE TABS */
+
+function showPriceGroup(group){
+
+document
+.querySelectorAll(".price-group")
+.forEach(function(item){
+
+item.classList.remove("active");
+
+});
+
+document
+.querySelectorAll(".price-tab")
+.forEach(function(button){
+
+button.classList.remove("active");
+
+});
+
+const groupSection =
+document.getElementById(
+"price-" + group
+);
+
+if(groupSection){
+
+groupSection.classList.add("active");
+
+}
+
+const groupButton =
+document.querySelector(
+'.price-tab[data-price="' +
+group +
+'"]'
+);
+
+if(groupButton){
+
+groupButton.classList.add("active");
 
 }
 
@@ -1756,13 +2446,15 @@ categoryButton.classList.add("active");
 function openLightbox(src){
 
 document
-.getElementById("lightboxImage").src = src;
+.getElementById("lightboxImage")
+.src = src;
 
 document
 .getElementById("lightbox")
 .classList.add("open");
 
-document.body.style.overflow="hidden";
+document.body.style.overflow =
+"hidden";
 
 }
 
@@ -1770,7 +2462,7 @@ document.body.style.overflow="hidden";
 function closeLightbox(event){
 
 if(
-event.target.id==="lightbox" ||
+event.target.id === "lightbox" ||
 event.target.classList.contains("lightbox-close")
 ){
 
@@ -1778,7 +2470,8 @@ document
 .getElementById("lightbox")
 .classList.remove("open");
 
-document.body.style.overflow="";
+document.body.style.overflow =
+"";
 
 }
 
@@ -1789,13 +2482,14 @@ document.addEventListener(
 "keydown",
 function(event){
 
-if(event.key==="Escape"){
+if(event.key === "Escape"){
 
 document
 .getElementById("lightbox")
 .classList.remove("open");
 
-document.body.style.overflow="";
+document.body.style.overflow =
+"";
 
 }
 
@@ -1849,28 +2543,40 @@ gallery:"interior"
 
 ];
 
-let currentSlide=0;
+let currentSlide = 0;
+
 let slideshowTimer;
 
 
 function showSlide(index){
 
-if(index<0){
-index=heroSlides.length-1;
+if(index < 0){
+
+index =
+heroSlides.length - 1;
+
 }
 
-if(index>=heroSlides.length){
-index=0;
+if(index >= heroSlides.length){
+
+index = 0;
+
 }
 
-currentSlide=index;
+currentSlide = index;
 
-heroSlides.forEach(function(slide){
+heroSlides.forEach(
+function(slide){
+
 slide.classList.remove("active");
+
 });
 
-heroDots.forEach(function(dot){
+heroDots.forEach(
+function(dot){
+
 dot.classList.remove("active");
+
 });
 
 heroSlides[currentSlide]
@@ -1917,16 +2623,21 @@ showSlide(index);
 
 function restartSlideshow(){
 
-clearInterval(slideshowTimer);
+clearInterval(
+slideshowTimer
+);
 
 slideshowTimer =
-setInterval(function(){
+setInterval(
+function(){
 
 showSlide(
 currentSlide + 1
 );
 
-},5000);
+},
+5000
+);
 
 }
 
