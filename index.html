@@ -1307,8 +1307,6 @@ Gallery
 
 <main class="site-main" id="siteMain">
 
-<!-- HERO -->
-
 <section class="hero" id="home">
 
 <div class="hero-slide active" style="background-image:url('banner.jpg');"></div>
@@ -1359,16 +1357,10 @@ View Gallery
 </section>
 
 <div class="marquee">
-
 <div class="marquee-inner">
-
 AUTOMOTIVE PHOTOGRAPHY • CARS • DETAILS • ATMOSPHERE • mm_spotting • WEDDINGS • EVENTS • PETS • PHOTOGRAPHY • mm_spotting • AUTOMOTIVE PHOTOGRAPHY • CARS • DETAILS •
-
 </div>
-
 </div>
-
-<!-- ABOUT -->
 
 <section class="intro reveal" id="about">
 
@@ -1396,18 +1388,14 @@ memorable and personal.
 </div>
 
 <div class="about-photo">
-
 <img
 src="about-me.jpg"
 alt="mm_spotting photographer at work">
-
 </div>
 
 </div>
 
 </section>
-
-<!-- PORTFOLIO -->
 
 <section class="portfolio" id="portfolio">
 
@@ -1476,8 +1464,6 @@ Click any image to open its full gallery category.
 </div>
 
 </section>
-
-<!-- APPROACH -->
 
 <section class="approach" id="approach">
 
@@ -1577,8 +1563,6 @@ are delivered digitally.
 
 </section>
 
-<!-- INFO -->
-
 <section class="info" id="info">
 
 <div class="info-grid">
@@ -1625,8 +1609,6 @@ Ask a question
 
 </section>
 
-<!-- PRICES -->
-
 <section class="prices" id="prices">
 
 <div class="section-number reveal">
@@ -1667,7 +1649,7 @@ Pets
 <h3>Essential</h3>
 
 <div class="price-value">
-£50
+€50
 </div>
 
 <ul>
@@ -1686,7 +1668,7 @@ Pets
 <h3>Standard</h3>
 
 <div class="price-value">
-£85
+€85
 </div>
 
 <ul>
@@ -1705,7 +1687,7 @@ Pets
 <h3>Premium</h3>
 
 <div class="price-value">
-£140
+€140
 </div>
 
 <ul>
@@ -1732,7 +1714,7 @@ Pets
 <h3>Events</h3>
 
 <div class="price-value">
-From £75
+From €75
 </div>
 
 <ul>
@@ -1790,7 +1772,7 @@ Ask for a quote
 <h3>Mini</h3>
 
 <div class="price-value">
-£40
+€40
 </div>
 
 <ul>
@@ -1809,7 +1791,7 @@ Ask for a quote
 <h3>Standard</h3>
 
 <div class="price-value">
-£70
+€70
 </div>
 
 <ul>
@@ -1828,7 +1810,7 @@ Ask for a quote
 <h3>Premium</h3>
 
 <div class="price-value">
-£110
+€110
 </div>
 
 <ul>
@@ -1847,8 +1829,6 @@ Ask for a quote
 </div>
 
 </section>
-
-<!-- BLOG -->
 
 <section class="blog" id="blog">
 
@@ -1932,8 +1912,6 @@ to creating mm_spotting Photography.
 </div>
 
 </section>
-
-<!-- CONTACT -->
 
 <section class="contact" id="contact">
 
@@ -2034,7 +2012,7 @@ class="form-message form-error"
 data-fs-error>
 </div>
 
-<form id="contactForm">
+<form id="contactForm" action="https://formspree.io/f/xoeadvoe" method="POST">
 
 <div class="form-row">
 
@@ -2049,13 +2027,7 @@ type="text"
 id="name"
 name="name"
 placeholder="Your name"
-data-fs-field
 required>
-
-<span
-class="form-message form-error"
-data-fs-error="name">
-</span>
 
 </div>
 
@@ -2070,13 +2042,7 @@ type="email"
 id="email"
 name="email"
 placeholder="Your email"
-data-fs-field
 required>
-
-<span
-class="form-message form-error"
-data-fs-error="email">
-</span>
 
 </div>
 
@@ -2091,7 +2057,6 @@ What is this about?
 <select
 id="subject"
 name="subject"
-data-fs-field
 required>
 
 <option value="" disabled selected>
@@ -2124,11 +2089,6 @@ Other
 
 </select>
 
-<span
-class="form-message form-error"
-data-fs-error="subject">
-</span>
-
 </div>
 
 <div class="form-field">
@@ -2141,21 +2101,13 @@ Message
 id="message"
 name="message"
 placeholder="Tell me what you have in mind..."
-data-fs-field
-required>
-</textarea>
-
-<span
-class="form-message form-error"
-data-fs-error="message">
-</span>
+required></textarea>
 
 </div>
 
 <button
 type="submit"
-class="button contact-submit"
-data-fs-submit-btn>
+class="button contact-submit">
 
 Send message
 
@@ -2182,8 +2134,6 @@ Photography
 </footer>
 
 </main>
-
-<!-- BLOG VIEW -->
 
 <section class="blog-view" id="blogView">
 
@@ -2402,8 +2352,6 @@ mm_spotting Photography
 
 </section>
 
-<!-- GALLERY VIEW -->
-
 <section class="gallery-view" id="galleryView">
 
 <div class="gallery-back" onclick="closeGalleryView(true)">
@@ -2612,8 +2560,6 @@ Details
 
 </section>
 
-<!-- LIGHTBOX -->
-
 <div class="lightbox" id="lightbox">
 
 <div class="lightbox-close" onclick="closeLightbox()">
@@ -2636,8 +2582,6 @@ Details
 
 <script>
 
-/* MENU */
-
 function toggleMenu(){
 
 document
@@ -2645,9 +2589,6 @@ document
 .classList.toggle("open");
 
 }
-
-
-/* REVEAL */
 
 const reveals =
 document.querySelectorAll(".reveal");
@@ -2673,9 +2614,6 @@ reveals.forEach(el =>
 observer.observe(el)
 );
 
-
-/* RETURN TO SITE */
-
 function returnToSite(){
 
 document
@@ -2695,9 +2633,6 @@ document
 .classList.remove("open");
 
 }
-
-
-/* BLOG */
 
 function openBlog(blog){
 
@@ -2739,7 +2674,6 @@ behavior:"auto"
 
 }
 
-
 function closeBlog(){
 
 document
@@ -2761,9 +2695,6 @@ behavior:"smooth"
 },10);
 
 }
-
-
-/* GALLERY */
 
 function openGalleryView(category){
 
@@ -2790,7 +2721,6 @@ behavior:"auto"
 
 }
 
-
 function closeGalleryView(scrollTop){
 
 document
@@ -2811,7 +2741,6 @@ behavior:"auto"
 }
 
 }
-
 
 function showGalleryCategory(category){
 
@@ -2862,9 +2791,6 @@ behavior:"auto"
 
 }
 
-
-/* PRICE TABS */
-
 function showPriceGroup(group){
 
 document
@@ -2908,9 +2834,6 @@ priceButton.classList.add("active");
 }
 
 }
-
-
-/* LIGHTBOX */
 
 const galleryImages = {
 
@@ -2958,13 +2881,11 @@ details:[
 
 };
 
-
 let lightboxCategory =
 "automotive";
 
 let lightboxIndex =
 0;
-
 
 function openLightbox(category,index){
 
@@ -2984,7 +2905,6 @@ document.body.style.overflow =
 "hidden";
 
 }
-
 
 function updateLightbox(){
 
@@ -3018,7 +2938,6 @@ images.length;
 
 }
 
-
 function changeLightboxImage(direction){
 
 lightboxIndex += direction;
@@ -3026,7 +2945,6 @@ lightboxIndex += direction;
 updateLightbox();
 
 }
-
 
 function closeLightbox(){
 
@@ -3038,7 +2956,6 @@ document.body.style.overflow =
 "";
 
 }
-
 
 document
 .getElementById("lightbox")
@@ -3053,7 +2970,6 @@ closeLightbox();
 }
 
 });
-
 
 document.addEventListener(
 "keydown",
@@ -3081,9 +2997,6 @@ changeLightboxImage(1);
 
 });
 
-
-/* PHONE SWIPE */
-
 let touchStartX = 0;
 
 document
@@ -3100,7 +3013,6 @@ event.changedTouches[0].screenX;
 passive:true
 }
 );
-
 
 document
 .getElementById("lightbox")
@@ -3135,9 +3047,6 @@ changeLightboxImage(-1);
 passive:true
 }
 );
-
-
-/* HERO */
 
 const heroSlides =
 document.querySelectorAll(".hero-slide");
@@ -3184,11 +3093,9 @@ gallery:"interior"
 
 ];
 
-
 let currentSlide = 0;
 
 let slideshowTimer;
-
 
 function showSlide(index){
 
@@ -3245,7 +3152,6 @@ restartSlideshow();
 
 }
 
-
 function changeSlide(direction){
 
 showSlide(
@@ -3254,13 +3160,11 @@ currentSlide + direction
 
 }
 
-
 function goToSlide(index){
 
 showSlide(index);
 
 }
-
 
 function restartSlideshow(){
 
@@ -3282,7 +3186,6 @@ currentSlide + 1
 
 }
 
-
 document
 .getElementById("heroButton")
 .addEventListener(
@@ -3297,39 +3200,63 @@ heroContent[currentSlide].gallery
 
 });
 
-
 restartSlideshow();
 
+const contactForm = document.getElementById("contactForm");
+const contactSuccess = document.querySelector("[data-fs-success]");
+const contactError = document.querySelector("[data-fs-error]");
+const contactSubmit = contactForm.querySelector('[type="submit"]');
 
-/* CONTACT FORM */
+contactForm.addEventListener("submit", async function(event){
 
-window.formspree =
-window.formspree ||
-function(){
+event.preventDefault();
 
-(formspree.q =
-formspree.q || [])
-.push(arguments);
+contactSuccess.textContent = "";
+contactError.textContent = "";
+contactSubmit.disabled = true;
+contactSubmit.textContent = "Sending...";
 
-};
+try{
 
+const response = await fetch(contactForm.action, {
+method:"POST",
+body:new FormData(contactForm),
+headers:{
+Accept:"application/json"
+}
+});
 
-formspree(
-"initForm",
-{
+if(response.ok){
 
-formElement:"#contactForm",
+contactSuccess.textContent =
+"Message sent successfully. Thanks, I'll get back to you as soon as I can.";
 
-formId:"xoeadvoe"
+contactForm.reset();
 
 }
-);
+else{
 
-</script>
+contactError.textContent =
+"Something went wrong. Please try again.";
 
-<script
-src="https://unpkg.com/@formspree/ajax@1"
-defer>
+}
+
+}
+catch(error){
+
+contactError.textContent =
+"Something went wrong. Please check your connection and try again.";
+
+}
+finally{
+
+contactSubmit.disabled = false;
+contactSubmit.textContent = "Send message";
+
+}
+
+});
+
 </script>
 
 </body>
